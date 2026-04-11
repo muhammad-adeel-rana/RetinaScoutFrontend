@@ -1,0 +1,85 @@
+<!-- Breadcrumb -->
+<div class="blog-breadcrumb">
+  <div class="container">
+    <span>Home</span> <span class="sep">›</span>
+    <span>RetinaScout</span> <span class="sep">›</span>
+    <span>Today's Retinal Disease News &amp; Expert Insights</span>
+  </div>
+</div>
+
+<!-- Hero Grid -->
+<div class="blog-hero-grid container">
+
+  <!-- Left: Featured large card -->
+  <div class="hero-featured">
+    <div class="hero-img-placeholder">
+      <div class="hero-overlay">
+        <span class="hero-category">RETINAL HEALTH</span>
+        <h2 class="hero-title">5 Retinal Rules: How to Organize Your Working Place</h2>
+        <p class="hero-meta">
+          <span class="hero-author">By James Mitchell</span>
+          <span class="hero-date">April 5, 2026</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: 4 small cards stacked -->
+  <div class="hero-sidebar">
+    @for (item of sideArticles; track $index) {
+      <div class="side-card">
+        <div class="side-img-ph"></div>
+        <div class="side-content">
+          <span class="side-category">{{ item.category }}</span>
+          <h4 class="side-title">{{ item.title }}</h4>
+          <span class="side-date">{{ item.date }}</span>
+        </div>
+      </div>
+    }
+  </div>
+</div>
+
+<!-- Two medium cards -->
+<div class="medium-cards container">
+  @for (item of mediumArticles; track item.title) {
+    <div class="medium-card">
+      <div class="medium-img-ph"></div>
+      <div class="medium-content">
+        <span class="medium-category">{{ item.category }}</span>
+        <h3 class="medium-title">{{ item.title }}</h3>
+        <p class="medium-desc">{{ item.desc }}</p>
+        <span class="medium-date">{{ item.date }}</span>
+      </div>
+    </div>
+  }
+</div>
+
+<!-- Featured Banner Article -->
+<div class="featured-banner">
+  <div class="banner-img-ph">
+    <div class="banner-overlay">
+      <div class="container banner-inner">
+        <div class="banner-tags">
+          <span class="tag">SCIENCE</span>
+          <span class="tag">TECHNOLOGY</span>
+        </div>
+        <h2 class="banner-title">A deep dive into the influence of cultural movements on contemporary society</h2>
+        <div class="banner-authors">
+          @for (author of bannerAuthors; track author.name) {
+            <div class="banner-author">
+              <div class="author-avatar"></div>
+              <div>
+                <span class="author-name">{{ author.name }}</span>
+                <span class="author-role">{{ author.role }}</span>
+              </div>
+            </div>
+          }
+          <div class="banner-share">
+            <span>Share</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

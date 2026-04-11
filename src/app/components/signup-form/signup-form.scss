@@ -1,0 +1,214 @@
+.auth-form-wrap {
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.auth-subtitle {
+  font-size: 0.88rem;
+  color: var(--text-gray);
+  margin-bottom: 28px;
+}
+
+.social-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  border: none;
+
+  &:hover { opacity: 0.88; }
+
+  &--google {
+    background: var(--bg-white);
+    border: 1.5px solid var(--border-color);
+    color: var(--text-dark);
+  }
+
+  &--facebook {
+    background: #1877F2;
+    color: #fff;
+  }
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+
+  .divider-line { flex: 1; height: 1px; background: var(--border-color); }
+  .divider-text { font-size: 0.78rem; color: var(--text-gray); white-space: nowrap; }
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  label { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); }
+
+  input, select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.88rem;
+    color: var(--text-dark);
+    font-family: var(--font-family);
+    background: var(--bg-white);
+    outline: none;
+    transition: border-color 0.2s;
+
+    &::placeholder { color: #aab4be; }
+    &:focus { border-color: var(--text-dark); }
+  }
+}
+
+.select-wrap {
+  position: relative;
+
+  select { appearance: none; padding-right: 36px; cursor: pointer; }
+
+  .select-arrow {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    stroke: var(--text-gray);
+    pointer-events: none;
+  }
+}
+
+.input-icon-wrap {
+  position: relative;
+
+  input { padding-right: 42px; }
+
+  .eye-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+
+    svg { width: 18px; height: 18px; stroke: var(--text-gray); }
+  }
+}
+
+.phone-wrap {
+  display: flex;
+  border: 1.5px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+
+  &:focus-within { border-color: var(--text-dark); }
+
+  .phone-prefix {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0 12px;
+    background: var(--bg-light);
+    border-right: 1.5px solid var(--border-color);
+    cursor: pointer;
+
+    .flag { font-size: 1rem; }
+  }
+
+  input {
+    flex: 1;
+    border: none;
+    border-radius: 0;
+    padding: 11px 14px;
+    font-size: 0.88rem;
+    outline: none;
+    font-family: var(--font-family);
+
+    &::placeholder { color: #aab4be; }
+  }
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--text-dark);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  label { font-size: 0.85rem; color: var(--text-dark); cursor: pointer; }
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 13px;
+  background: var(--text-dark);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: var(--font-family);
+  margin-top: 4px;
+
+  &:hover { background: #1a2b3c; }
+}
+
+.auth-switch {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--text-gray);
+  margin: 0;
+
+  a { color: var(--text-dark); }
+}
+
+.auth-role-switch {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-gray);
+  margin: 0;
+
+  a { color: var(--text-dark); }
+}

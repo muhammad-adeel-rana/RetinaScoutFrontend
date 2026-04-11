@@ -1,0 +1,38 @@
+<section class="faq-section section-padding">
+  <div class="container">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+    <p class="faq-subtitle">
+      All you need to know about the product and billing. Can't find the answer you're looking for?
+      Please <a href="#">chat with our team</a>.
+    </p>
+
+    <!-- Search -->
+    <div class="faq-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="text" placeholder="Search" />
+    </div>
+
+    <!-- FAQ list -->
+    <div class="faq-list">
+      @for (faq of faqs; track faq.q; let i = $index) {
+        <div class="faq-item" [class.faq-item--open]="faq.open" (click)="toggleFaq(i)">
+          <div class="faq-question">
+            <span>{{ faq.q }}</span>
+            <div class="faq-icon" [class.faq-icon--open]="faq.open">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+          </div>
+          @if (faq.open) {
+            <div class="faq-answer">
+              <p>{{ faq.a }}</p>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

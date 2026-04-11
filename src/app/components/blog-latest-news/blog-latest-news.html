@@ -1,0 +1,24 @@
+<section class="latest-news section-padding">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-label">LATEST NEWS</h2>
+      <a href="#" class="show-all">Show All →</a>
+    </div>
+
+    <div class="news-grid">
+      @for (article of articles; track article.title) {
+        <div class="news-card">
+          <div class="news-img-ph"></div>
+          <div class="news-content">
+            <span class="news-category">{{ article.category }}</span>
+            <h3 class="news-title">{{ article.title }}</h3>
+            <div class="news-meta">
+              <span class="news-author">{{ article.author }}</span>
+              <span class="news-date">{{ article.date }}</span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

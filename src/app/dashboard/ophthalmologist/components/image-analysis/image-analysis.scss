@@ -1,0 +1,60 @@
+.card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.card-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1E2A3A;
+}
+
+.more-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #94A3B8;
+}
+
+.analysis-wrap {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  justify-content: center;
+}
+
+.analysis-svg {
+  width: 140px;
+  height: 140px;
+  flex-shrink: 0;
+}
+
+.analysis-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: #64748B;
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+}

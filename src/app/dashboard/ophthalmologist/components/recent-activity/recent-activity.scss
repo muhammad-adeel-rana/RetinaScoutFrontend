@@ -1,0 +1,74 @@
+.card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.card-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1E2A3A;
+}
+
+.export-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  background: #3B82F6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.activity-item {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #F8FBFF;
+  align-items: flex-start;
+
+  &:last-child { border-bottom: none; }
+}
+
+.activity-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #3B82F6;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.activity-content {
+  flex: 1;
+
+  .activity-text {
+    font-size: 0.82rem;
+    color: #2A3B4C;
+    line-height: 1.4;
+    margin: 0 0 3px;
+  }
+
+  .activity-time {
+    font-size: 0.7rem;
+    color: #94A3B8;
+  }
+}

@@ -1,0 +1,40 @@
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Image Analysis</h3>
+    <button class="more-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="14"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+    </button>
+  </div>
+
+  <div class="analysis-wrap">
+    <!-- Donut SVG -->
+    <svg viewBox="0 0 120 120" class="analysis-svg">
+      <!-- Completed 75% -->
+      <circle cx="60" cy="60" r="45" fill="none" stroke="#3B82F6" stroke-width="22"
+        stroke-dasharray="212 70.7" stroke-dashoffset="0" transform="rotate(-90 60 60)"/>
+      <!-- Not Yet Analyzed 15% -->
+      <circle cx="60" cy="60" r="45" fill="none" stroke="#CBD5E1" stroke-width="22"
+        stroke-dasharray="42.4 240.3" stroke-dashoffset="-212" transform="rotate(-90 60 60)"/>
+      <!-- Feedback Needed 10% -->
+      <circle cx="60" cy="60" r="45" fill="none" stroke="#93C5FD" stroke-width="22"
+        stroke-dasharray="28.3 254.4" stroke-dashoffset="-254.4" transform="rotate(-90 60 60)"/>
+      <text x="60" y="64" text-anchor="middle" font-size="14" font-weight="800" fill="#1E2A3A">75%</text>
+    </svg>
+
+    <!-- Legend -->
+    <div class="analysis-legend">
+      <div class="legend-item">
+        <span class="dot" style="background:#3B82F6"></span>
+        <span>Completed</span>
+      </div>
+      <div class="legend-item">
+        <span class="dot" style="background:#CBD5E1"></span>
+        <span>Not Yet Analyzed</span>
+      </div>
+      <div class="legend-item">
+        <span class="dot" style="background:#93C5FD"></span>
+        <span>Feedback Needed</span>
+      </div>
+    </div>
+  </div>
+</div>

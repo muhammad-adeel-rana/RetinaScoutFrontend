@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Recent Activity</h3>
+    <button class="export-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12">
+        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      Expo
+    </button>
+  </div>
+
+  <div class="activity-list">
+    @for (act of activities; track $index) {
+      <div class="activity-item">
+        <div class="activity-dot"></div>
+        <div class="activity-content">
+          <p class="activity-text">{{ act.text }}</p>
+          <span class="activity-time">{{ act.time }}</span>
+        </div>
+      </div>
+    }
+  </div>
+</div>

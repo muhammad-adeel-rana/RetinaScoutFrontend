@@ -1,0 +1,29 @@
+<div class="card">
+  <h3 class="card-title">Doctor Availability</h3>
+  <table class="avail-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Break Time Set</th>
+        <th>Designation</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (doc of doctors; track doc.name) {
+        <tr>
+          <td>
+            <div class="doc-cell">
+              <div class="doc-avatar">{{ doc.avatar }}</div>
+              <div>
+                <div class="doc-name">{{ doc.name }}</div>
+                <div class="doc-role">{{ doc.role }}</div>
+              </div>
+            </div>
+          </td>
+          <td class="break-time">{{ doc.breakTime }}</td>
+          <td class="designation">{{ doc.role }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

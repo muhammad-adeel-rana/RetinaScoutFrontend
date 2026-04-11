@@ -1,0 +1,114 @@
+.faq-section {
+  background: var(--bg-white);
+}
+
+.faq-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.faq-subtitle {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  max-width: 560px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+
+  a { color: var(--primary-blue); font-weight: 500; }
+}
+
+.faq-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-white);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 10px 16px;
+  max-width: 700px;
+  margin: 0 auto 32px;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--text-gray);
+    flex-shrink: 0;
+  }
+
+  input {
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    background: transparent;
+    width: 100%;
+    font-family: var(--font-family);
+
+    &::placeholder { color: #aab4be; }
+  }
+}
+
+.faq-list {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+
+  &:first-child { border-top: 1px solid var(--border-color); }
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 4px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  gap: 16px;
+  user-select: none;
+}
+
+.faq-icon {
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.3s;
+
+  svg {
+    width: 14px;
+    height: 14px;
+    stroke: var(--text-gray);
+  }
+
+  &--open {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+    transform: rotate(180deg);
+
+    svg { stroke: #fff; }
+  }
+}
+
+.faq-answer {
+  padding: 0 4px 18px;
+
+  p {
+    font-size: 0.875rem;
+    color: var(--text-gray);
+    line-height: 1.75;
+    margin: 0;
+  }
+}

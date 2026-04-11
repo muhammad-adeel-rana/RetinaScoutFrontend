@@ -1,0 +1,88 @@
+<section class="pricing-section section-padding">
+  <div class="container">
+    <h1 class="pricing-title">Plans &amp; Pricing</h1>
+    <p class="pricing-subtitle">
+      Choose the plan that fits your needs. All plans include essential features for diabetic
+      retinopathy screening, with options to scale as your practice grows. No hidden fees and the
+      flexibility to change anytime.
+    </p>
+
+    <!-- Billing toggle -->
+    <div class="billing-toggle">
+      <button class="toggle-btn" [class.active]="billingCycle() === 'monthly'" (click)="setBilling('monthly')">Monthly</button>
+      <button class="toggle-btn" [class.active]="billingCycle() === 'annual'" (click)="setBilling('annual')">Annual</button>
+    </div>
+    <p class="annual-note">-15% off on annual payments</p>
+
+    <!-- Pricing cards -->
+    <div class="pricing-grid">
+
+      <!-- Starter -->
+      <div class="plan-card">
+        <div class="plan-header">
+          <h3 class="plan-name">Starter</h3>
+          <p class="plan-tagline">Ideal for small clinics</p>
+        </div>
+        <div class="plan-price">
+          <span class="price-free">Free</span>
+        </div>
+        <ul class="plan-features">
+          <li><span class="check-icon">⊘</span> Unlimited patient files</li>
+          <li><span class="check-icon">⊘</span> Email support</li>
+          <li><span class="check-icon">⊘</span> Basic image analysis</li>
+          <li><span class="check-icon">⊘</span> Basic analytics dashboard</li>
+          <li><span class="check-icon">⊘</span> 1,000 images per month</li>
+        </ul>
+        <button class="btn plan-btn plan-btn--dark">Try for free</button>
+      </div>
+
+      <!-- Professional (Featured) -->
+      <div class="plan-card plan-card--featured">
+        <div class="plan-badge">MOST POPULAR PLAN</div>
+        <div class="plan-header">
+          <h3 class="plan-name">Professional</h3>
+          <p class="plan-tagline">For clinics and small hospitals</p>
+        </div>
+        <div class="plan-price">
+          <span class="price-currency">$</span>
+          <span class="price-amount">{{ billingCycle() === 'monthly' ? '15' : '13' }}</span>
+          <span class="price-period">/per user</span>
+        </div>
+        <ul class="plan-features">
+          <li class="feature-highlight"><span class="check-icon check-icon--blue">●</span> All starter features +</li>
+          <li><span class="check-icon">⊘</span> Up to 5 user accounts</li>
+          <li><span class="check-icon">⊘</span> Advanced segmentation tools</li>
+          <li><span class="check-icon">⊘</span> Custom dashboards</li>
+          <li><span class="check-icon">⊘</span> Multiple export formats</li>
+          <li><span class="check-icon">⊘</span> Priority email support</li>
+        </ul>
+        <button class="btn plan-btn plan-btn--dark">Select plan</button>
+        <p class="plan-note">or <a href="#">contact sales</a></p>
+      </div>
+
+      <!-- Organization -->
+      <div class="plan-card">
+        <div class="plan-header">
+          <h3 class="plan-name">Organization</h3>
+          <p class="plan-tagline">For multi-location healthcare systems</p>
+        </div>
+        <div class="plan-price">
+          <span class="price-currency">$</span>
+          <span class="price-amount">{{ billingCycle() === 'monthly' ? '30' : '26' }}</span>
+          <span class="price-period">/per user</span>
+        </div>
+        <ul class="plan-features">
+          <li class="feature-highlight"><span class="check-icon check-icon--blue">●</span> All professional features +</li>
+          <li><span class="check-icon">⊘</span> Enterprise security suite</li>
+          <li><span class="check-icon">⊘</span> Single Sign-On (SSO)</li>
+          <li><span class="check-icon">⊘</span> Custom SLA terms</li>
+          <li><span class="check-icon">⊘</span> Dedicated phone support</li>
+          <li><span class="check-icon">⊘</span> API integration support</li>
+          <li><span class="check-icon">⊘</span> HIPAA compliance tools</li>
+        </ul>
+        <button class="btn plan-btn plan-btn--dark">Select plan</button>
+      </div>
+
+    </div>
+  </div>
+</section>

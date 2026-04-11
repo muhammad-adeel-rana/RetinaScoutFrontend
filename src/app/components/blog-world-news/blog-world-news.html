@@ -1,0 +1,39 @@
+<section class="world-news section-padding">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-label">WORLD NEWS</h2>
+      <a href="#" class="show-all">Show All →</a>
+    </div>
+
+    <div class="world-grid">
+      <!-- Large featured left -->
+      <div class="world-featured">
+        <div class="world-img-ph world-img-ph--large"></div>
+        <div class="world-content">
+          <span class="world-category">GLOBAL HEALTH</span>
+          <h3 class="world-title">Understanding the fundamental role of diabetic retinopathy screening in developing nations</h3>
+          <p class="world-desc">Researchers and clinicians are working together to bring AI-powered retinal screening to underserved communities worldwide.</p>
+          <div class="world-meta">
+            <div class="author-avatar"></div>
+            <span class="world-author">Dr. Benjamin Yusuf</span>
+            <span class="world-date">April 2, 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: 3 smaller cards -->
+      <div class="world-small-list">
+        @for (article of smallArticles; track article.title) {
+          <div class="world-small-card">
+            <div class="world-img-ph world-img-ph--small"></div>
+            <div class="world-small-content">
+              <span class="world-category">{{ article.category }}</span>
+              <h4 class="world-small-title">{{ article.title }}</h4>
+              <span class="world-date">{{ article.date }}</span>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

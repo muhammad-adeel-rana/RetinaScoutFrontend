@@ -1,0 +1,43 @@
+<section class="tech-news section-padding">
+  <div class="container">
+    <div class="tech-columns">
+
+      <!-- Column 1 -->
+      <div class="tech-col">
+        <div class="section-header">
+          <h2 class="section-label">TECHNOLOGY NEWS</h2>
+          <a href="#" class="show-all">Show All →</a>
+        </div>
+        @for (article of col1; track article.title) {
+          <div class="tech-card">
+            <div class="tech-img-ph"></div>
+            <div class="tech-content">
+              <span class="tech-category">{{ article.category }}</span>
+              <h4 class="tech-title">{{ article.title }}</h4>
+              <span class="tech-date">{{ article.date }}</span>
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Column 2 -->
+      <div class="tech-col">
+        <div class="section-header">
+          <h2 class="section-label">TECHNOLOGY NEWS</h2>
+          <a href="#" class="show-all">Show All →</a>
+        </div>
+        @for (article of col2; track article.title) {
+          <div class="tech-card">
+            <div class="tech-img-ph"></div>
+            <div class="tech-content">
+              <span class="tech-category">{{ article.category }}</span>
+              <h4 class="tech-title">{{ article.title }}</h4>
+              <span class="tech-date">{{ article.date }}</span>
+            </div>
+          </div>
+        }
+      </div>
+
+    </div>
+  </div>
+</section>

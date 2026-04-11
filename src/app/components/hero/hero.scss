@@ -1,0 +1,212 @@
+.hero-section {
+  background: linear-gradient(160deg, #EBF5FF 0%, #F8FBFF 60%, #ffffff 100%);
+  padding: 70px 20px 120px;
+  overflow: hidden;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+// ===== LEFT CONTENT =====
+.hero-content {
+  flex: 1;
+  min-width: 300px;
+  max-width: 520px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  font-size: 1rem;
+  color: var(--text-gray);
+  line-height: 1.75;
+  margin-bottom: 32px;
+  text-decoration: none;
+
+  strong { color: var(--text-dark); font-weight: 600; }
+  a {
+    color: var(--primary-blue);
+    font-weight: 500;
+    text-decoration: underline;
+  }
+}
+
+.launch-btn {
+  font-size: 1rem;
+  padding: 14px 28px;
+  gap: 10px;
+  border-radius: 8px;
+}
+
+// ===== RIGHT VISUAL =====
+.hero-visual {
+  flex: 1;
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Eye image — zoomed, shifted up and right
+.eye-anatomy {
+  position: absolute;
+  width: 671px;
+  height: 552px;
+  top: -40px;       // shift up
+  right: -5px;     // shift right
+
+  .retinal-image {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  }
+}
+
+// Floating badges
+.floating-badge {
+  position: absolute;
+  background: #fff;
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+// Customers badge — bottom right of eye
+.badge-customers {
+  bottom: 60px;
+  right: -20px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 200px;
+
+  .avatars {
+    display: flex;
+    flex-shrink: 0;
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      margin-left: -8px;
+
+      &:first-child { margin-left: 0; }
+      &.av1 { background: linear-gradient(135deg, #a8c0d6, #7a9bb5); }
+      &.av2 { background: linear-gradient(135deg, #b8d4c8, #8ab5a5); }
+      &.av3 { background: linear-gradient(135deg, #d4b8c8, #b58aa5); }
+      &.av4 { background: linear-gradient(135deg, #c8d4a8, #a5b58a); }
+    }
+  }
+
+  .badge-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    .badge-count {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1;
+    }
+
+    .badge-label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--primary-blue);
+      margin-top: 1px;
+    }
+
+    .badge-stars {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 3px;
+
+      .stars {
+        color: #F59E0B;
+        font-size: 0.78rem;
+        letter-spacing: 1px;
+      }
+
+      .stars-score {
+        font-size: 0.68rem;
+        color: var(--text-gray);
+      }
+    }
+  }
+}
+
+// Quote badge — below customers badge
+.badge-quote {
+  bottom: -10px;
+  right: 160px;
+  padding: 14px 16px;
+  max-width: 280px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  .quote-icon {
+    flex-shrink: 0;
+    color: #cbd5e1;
+    margin-top: 2px;
+  }
+
+  p {
+    font-size: 0.8rem;
+    color: var(--text-gray);
+    line-height: 1.55;
+    margin: 0;
+  }
+}
+
+// ===== RESPONSIVE =====
+@media (max-width: 1024px) {
+  .hero-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .hero-content { max-width: 100%; }
+
+  .hero-visual {
+    width: 100%;
+    height: 380px;
+  }
+
+  .eye-anatomy {
+    width: 320px;
+    height: 320px;
+    top: -20px;
+    right: -20px;
+  }
+
+  .badge-customers { right: 0; }
+  .badge-quote { right: 80px; }
+}
+
+@media (max-width: 640px) {
+  .hero-title { font-size: 2.2rem; }
+  .eye-anatomy { width: 260px; height: 260px; }
+}
