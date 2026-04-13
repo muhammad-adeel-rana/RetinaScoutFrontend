@@ -1,0 +1,146 @@
+.sidebar {
+  width: 200px;
+  height: 100vh;
+  background: #FFFFFF;
+  border-right: 1px solid #E2E8F0;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: width 0.3s ease;
+  flex-shrink: 0;
+  overflow: hidden;
+
+  &.collapsed {
+    width: 60px;
+
+    .nav-label { display: none; }
+    .logo-text { display: none; }
+    .logo-sub { display: none; }
+  }
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 14px 12px;
+  border-bottom: 1px solid #E2E8F0;
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+    // background: var(--primary-blue);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    svg { width: 18px; height: 18px; stroke: #fff; }
+  }
+
+  .logo-text {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #0069AB;
+    line-height: 1;
+  }
+  
+  .logo-accent {
+    color: var(--primary-blue);
+  }
+
+  .logo-sub {
+    font-size: 0.62rem;
+    color: #94A3B8;
+    margin-top: 1px;
+  }
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 18px;
+  right: -6px;
+  width: 26px;
+  height: 26px;
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+
+  svg {
+    width: 12px;
+    height: 12px;
+    stroke: #64748B;
+    transition: transform 0.3s;
+  }
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 8px;
+  flex: 1;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #64748B;
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  white-space: nowrap;
+  cursor: pointer;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    stroke: #64748B;
+    transition: stroke 0.2s;
+  }
+
+  &:hover {
+    background: #DBEAFE;
+    color: #1D4ED8;
+    svg { stroke: #1D4ED8; }
+  }
+
+  &.active {
+    background: #BFDBFE;
+    color: #1D4ED8;
+    font-weight: 600;
+    svg { stroke: #1D4ED8; }
+  }
+}
+
+.sidebar-footer {
+  padding: 8px;
+  border-top: 1px solid #E2E8F0;
+
+  .signout-item {
+    color: #94A3B8;
+    svg { stroke: #94A3B8; }
+
+    &:hover {
+      background: #FEE2E2;
+      color: #DC2626;
+      svg { stroke: #DC2626; }
+    }
+  }
+}

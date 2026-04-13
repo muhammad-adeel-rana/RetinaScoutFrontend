@@ -1,0 +1,77 @@
+<div class="dashboard-layout" [class.sidebar-collapsed]="sidebarCollapsed">
+  <app-dashboard-sidebar
+    [collapsed]="sidebarCollapsed"
+    (toggleSidebar)="toggleSidebar()">
+  </app-dashboard-sidebar>
+
+  <div class="dashboard-main">
+    <app-dashboard-navbar></app-dashboard-navbar>
+
+    <div class="page-content">
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <span>Home</span>
+        <span class="sep">›</span>
+        <span class="current">Image Upload</span>
+      </div>
+
+      <!-- Upload Section -->
+      <div class="upload-section">
+        <h2 class="section-title">Upload Your Images</h2>
+
+        <div class="upload-grid">
+          @for (slot of uploadSlots; track slot) {
+            <div class="upload-card" (click)="triggerUpload(slot)">
+              <input
+                [id]="'file-input-' + slot"
+                type="file"
+                accept="image/*"
+                class="file-input"
+                (change)="onFileSelected($event, slot)"
+              />
+              @if (uploadedFiles[slot]) {
+                <div class="uploaded-preview">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32">
+                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                  <span class="file-name">{{ uploadedFiles[slot]?.name }}</span>
+                </div>
+              } @else {
+                <div class="upload-placeholder">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="36" height="36">
+                    <polyline points="16 16 12 12 8 16"/>
+                    <line x1="12" y1="12" x2="12" y2="21"/>
+                    <path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/>
+                  </svg>
+                  <span class="upload-label">Upload</span>
+                </div>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="upload-actions">
+          <button class="btn btn-primary view-btn">View Analysis</button>
+        </div>
+      </div>
+
+      <!-- Analysis Results Section -->
+      <div class="analysis-section">
+        <h2 class="section-title">View all analysis</h2>
+        <p class="analysis-subtitle">Displaying 4 analysis results</p>
+
+        <div class="analysis-grid">
+          @for (result of analysisResults; track result.label) {
+            <div class="analysis-card">
+              <div class="analysis-img-ph"></div>
+              <span class="analysis-badge">{{ result.label }}</span>
+            </div>
+          }
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

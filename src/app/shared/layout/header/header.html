@@ -1,0 +1,17 @@
+<header class="header">
+  <div class="container header-content">
+    <a routerLink="/" class="logo">
+      <img src="logo.png" alt="RetinaScout" class="logo-icon" />
+      <span class="logo-text">Retina<span class="logo-accent">Scout</span></span>
+    </a>
+
+    <nav class="navigation">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">Home</a>
+      <a routerLink="/about" routerLinkActive="active" class="nav-link">About us</a>
+      <a routerLink="/pricing" routerLinkActive="active" class="nav-link">Pricing</a>
+      <a routerLink="/blog" routerLinkActive="active" class="nav-link">Blog</a>
+    </nav>
+
+    <a routerLink="/signup" class="btn btn-primary">Join us</a>
+  </div>
+</header>

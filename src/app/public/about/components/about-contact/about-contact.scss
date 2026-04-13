@@ -1,0 +1,84 @@
+// ===== SECTION 6: CONTACT FORM =====
+.contact-section {
+  background: var(--bg-light);
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+}
+
+.contact-form-wrap {
+  .section-heading { margin-bottom: 28px; }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      &.full { grid-column: 1 / -1; }
+
+      label {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+
+      input, textarea {
+        padding: 10px 14px;
+        border: 1.5px solid var(--border-color);
+        border-radius: var(--border-radius-sm);
+        font-family: var(--font-family);
+        font-size: 0.9rem;
+        color: var(--text-dark);
+        background: var(--bg-white);
+        transition: border-color 0.3s;
+        outline: none;
+
+        &::placeholder { color: #aab4be; }
+        &:focus { border-color: var(--primary-blue); }
+      }
+
+      textarea { resize: vertical; }
+    }
+
+    .submit-btn { align-self: flex-start; margin-top: 4px; }
+  }
+}
+
+.contact-image {
+  .contact-img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: var(--border-radius-lg);
+    display: block;
+  }
+}
+
+// ===== RESPONSIVE =====
+@media (max-width: 1024px) {
+  .contact-section .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-form-wrap .contact-form .form-row {
+    grid-template-columns: 1fr;
+  }
+}

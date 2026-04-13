@@ -1,0 +1,72 @@
+// ===== SECTION 3: HOW IT WORKS =====
+.how-it-works {
+  background: var(--bg-light);
+
+  .section-heading { margin-bottom: 48px; }
+
+  .steps-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .step {
+    flex: 1;
+    max-width: 280px;
+    text-align: center;
+    padding: 0 16px;
+
+    .step-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--primary-blue);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+
+      svg {
+        width: 30px;
+        height: 30px;
+        stroke: #fff;
+      }
+    }
+
+    h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-dark);
+    }
+
+    p {
+      font-size: 0.875rem;
+      line-height: 1.65;
+    }
+  }
+
+  .step-arrow {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    flex-shrink: 0;
+
+    svg { width: 48px; height: 20px; }
+  }
+}
+
+// ===== RESPONSIVE =====
+@media (max-width: 1024px) {
+  .how-it-works .steps-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .how-it-works .step-arrow {
+    transform: rotate(90deg);
+    padding: 0;
+  }
+}

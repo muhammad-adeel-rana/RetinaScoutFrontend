@@ -1,0 +1,40 @@
+// ===== SECTION 5: WORK WITH US =====
+.work-with-us {
+  background: var(--primary-blue);
+  padding: 80px 20px;
+  text-align: center;
+
+  .work-inner {
+    max-width: 700px;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.75;
+      margin-bottom: 32px;
+    }
+  }
+
+  .btn-white {
+    background: #fff;
+    color: var(--primary-blue);
+    border: none;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      background: rgba(255,255,255,0.9);
+    }
+  }
+}
