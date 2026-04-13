@@ -1,0 +1,148 @@
+<div class="dashboard-layout" [class.sidebar-collapsed]="sidebarCollapsed">
+    <app-dashboard-sidebar [collapsed]="sidebarCollapsed" (toggleSidebar)="toggleSidebar()">
+    </app-dashboard-sidebar>
+
+    <div class="dashboard-main">
+        <app-dashboard-navbar></app-dashboard-navbar>
+
+        <div class="page-content">
+
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <span>Home</span>
+                <span class="sep">›</span>
+                <span>Visualization</span>
+                <span class="sep">›</span>
+                <span class="current">Medical Report</span>
+            </div>
+
+            <!-- Patient Header -->
+            <div class="patient-header">
+                <h2 class="patient-name">{{ patient.name }}</h2>
+                <p class="patient-meta">{{ patient.gender }} · Age {{ patient.age }}</p>
+                <p class="patient-meta">Blood: {{ patient.bloodType }} · {{ patient.conditions }}</p>
+            </div>
+
+            <!-- Vitals -->
+            <div class="vitals-card">
+                <div class="vitals-header">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="15"
+                        height="15">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+                    </svg>
+                    <span>Vitals</span>
+                </div>
+                <div class="vitals-grid">
+                    @for (v of vitals; track v.label) {
+                    <div class="vital-item">
+                        <span class="vital-value">{{ v.value }}</span>
+                        <span class="vital-label">{{ v.label }}</span>
+                    </div>
+                    }
+                </div>
+            </div>
+
+            <!-- AI Detection Results -->
+            <div class="section-card">
+                <div class="ai-header">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="15"
+                        height="15">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                    </svg>
+                    <span>AI Detection Analysis Results</span>
+                </div>
+                <div class="ai-grid">
+                    @for (r of aiResults; track r.label) {
+                    <div class="ai-card">
+                        <div class="ai-card-top">
+                            <span class="ai-dot" [style.background]="r.color"></span>
+                            <span class="ai-badge" [style.background]="r.color + '22'" [style.color]="r.color">{{
+                                r.percent }}%</span>
+                        </div>
+                        <p class="ai-label">{{ r.label }}</p>
+                        <div class="ai-severity-row">
+                            <span class="ai-severity-key">Severity:</span>
+                            <span class="ai-severity-val">{{ r.severity }}</span>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Attending Physician -->
+            <div class="section-card">
+                <h3 class="card-title">Attending Physician</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Doctor Name</label>
+                        <input type="text" [(ngModel)]="form.doctorName" name="doctorName" />
+                    </div>
+                    <div class="form-group">
+                        <label>Specialty</label>
+                        <input type="text" [(ngModel)]="form.specialty" name="specialty" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Two-column form layout -->
+            <div class="form-two-col">
+
+                <!-- Left column -->
+                <div class="form-col">
+                    <div class="section-card full-height">
+                        <h3 class="card-title">Diagnosis <span class="required">*</span></h3>
+                        <textarea [(ngModel)]="form.diagnosis" name="diagnosis" rows="6"
+                            placeholder="Enter the primary diagnosis based on AI analysis and clinical examination...">
+            </textarea>
+                    </div>
+
+                    <div class="section-card full-height">
+                        <h3 class="card-title">Recommendations &amp; Treatment Plan</h3>
+                        <textarea [(ngModel)]="form.recommendations" name="recommendations" rows="7"
+                            placeholder="Enter treatment recommendations, medications, lifestyle modifications, or referrals...">
+            </textarea>
+                    </div>
+                </div>
+
+                <!-- Right column -->
+                <div class="form-col">
+                    <div class="section-card full-height">
+                        <h3 class="card-title">Clinical Findings</h3>
+                        <textarea [(ngModel)]="form.clinicalFindings" name="clinicalFindings" rows="6"
+                            placeholder="Describe detailed clinical findings including examination findings, AI detection results, and any additional observations...">
+            </textarea>
+                    </div>
+
+                    <div class="section-card full-height">
+                        <h3 class="card-title">Follow-up Instructions</h3>
+                        <textarea [(ngModel)]="form.followUp" name="followUp" rows="7"
+                            placeholder="Enter follow-up schedule and specific instructions for the patient...">
+            </textarea>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Actions -->
+            <div class="form-actions">
+                <button class="btn-cancel" (click)="cancel()">Cancel</button>
+                <button class="btn-save" (click)="saveReport()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                        <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z" />
+                        <polyline points="17 21 17 13 7 13 7 21" />
+                        <polyline points="7 3 7 8 15 8" />
+                    </svg>
+                    Save Report
+                </button>
+                <button class="btn-download" (click)="downloadReport()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                    </svg>
+                    Download Report
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>

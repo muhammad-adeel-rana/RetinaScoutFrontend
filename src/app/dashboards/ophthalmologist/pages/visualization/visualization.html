@@ -1,0 +1,163 @@
+<div class="dashboard-layout" [class.sidebar-collapsed]="sidebarCollapsed">
+    <app-dashboard-sidebar [collapsed]="sidebarCollapsed" (toggleSidebar)="toggleSidebar()">
+    </app-dashboard-sidebar>
+
+    <div class="dashboard-main">
+        <app-dashboard-navbar></app-dashboard-navbar>
+
+        <div class="page-content">
+
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <span>Home</span>
+                <span class="sep">›</span>
+                <span class="current">Visualization</span>
+            </div>
+
+            <!-- Patient Header -->
+            <div class="patient-header">
+                <div class="patient-info">
+                    <h2 class="patient-name">{{ patient.name }}</h2>
+                    <p class="patient-meta">
+                        {{ patient.gender }} · Age {{ patient.age }} &nbsp;|&nbsp;
+                        ID: {{ patient.id }} · {{ patient.status }}
+                    </p>
+                </div>
+                <button class="btn btn-primary report-btn" (click)="goToMedicalReport()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15">
+                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="12" y1="18" x2="12" y2="12" />
+                        <line x1="9" y1="15" x2="15" y2="15" />
+                    </svg>
+                    Write Medical Report
+                </button>
+            </div>
+
+            <!-- Vitals -->
+            <div class="vitals-card">
+                <div class="vitals-header">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16"
+                        height="16">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+                    </svg>
+                    <span>Vitals</span>
+                </div>
+                <div class="vitals-grid">
+                    @for (v of vitals; track v.label) {
+                    <div class="vital-item">
+                        <span class="vital-value">{{ v.value }}</span>
+                        <span class="vital-label">{{ v.label }}</span>
+                    </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Image Viewer -->
+            <div class="viewer-grid">
+
+                <!-- Original Image -->
+                <div class="viewer-card">
+                    <div class="image-placeholder"></div>
+                    <div class="viewer-footer">
+                        <div class="viewer-meta">
+                            <span class="viewer-title">Original Image</span>
+                            <span class="viewer-sub">Alex Johnson · Right Eye</span>
+                        </div>
+                        <div class="zoom-controls">
+                            <button class="zoom-btn" (click)="zoomOut('original')">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                    height="14">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                    <line x1="8" y1="11" x2="14" y2="11" />
+                                </svg>
+                            </button>
+                            <span class="zoom-label">Zoom: {{ originalZoom }}%</span>
+                            <button class="zoom-btn" (click)="zoomIn('original')">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                    height="14">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                    <line x1="11" y1="8" x2="11" y2="14" />
+                                    <line x1="8" y1="11" x2="14" y2="11" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mask Overlay -->
+                <div class="viewer-card">
+                    <div class="image-placeholder"></div>
+                    <div class="viewer-footer">
+                        <div class="viewer-meta">
+                            <span class="viewer-title">Mask Overlay</span>
+                            <span class="viewer-sub">Alex Johnson · Right Eye</span>
+                        </div>
+                        <div class="zoom-controls">
+                            <button class="zoom-btn" (click)="zoomOut('mask')">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                    height="14">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                    <line x1="8" y1="11" x2="14" y2="11" />
+                                </svg>
+                            </button>
+                            <span class="zoom-label">Zoom: {{ maskZoom }}%</span>
+                            <button class="zoom-btn" (click)="zoomIn('mask')">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                    height="14">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                    <line x1="11" y1="8" x2="11" y2="14" />
+                                    <line x1="8" y1="11" x2="14" y2="11" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Overlay tags -->
+                    <div class="overlay-tags">
+                        @for (tag of overlayTags; track tag.label; let i = $index) {
+                        <button class="overlay-tag" [class.active]="tag.active" [style.--tag-color]="tag.color"
+                            (click)="toggleTag(i)">
+                            {{ tag.label }}
+                        </button>
+                        }
+                    </div>
+
+                    <!-- Opacity -->
+                    <div class="opacity-row">
+                        <span class="opacity-label">Opacity level</span>
+                        <input type="range" min="0" max="100" [(ngModel)]="opacityLevel" class="opacity-slider" />
+                        <span class="opacity-value">{{ opacityLevel }}%</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Detection Results -->
+            <div class="detection-section">
+                <h2 class="section-title">Detection Results</h2>
+                <div class="detection-list">
+                    @for (item of detectionResults; track item.label; let i = $index) {
+                    <div class="detection-row">
+                        <span class="detection-index">{{ (i + 1).toString().padStart(2, '0') }}</span>
+                        <span class="detection-label" [style.color]="item.color">{{ item.label }}</span>
+                        <div class="detection-bar-wrap">
+                            <div class="detection-bar" [style.width.%]="item.percent" [style.background]="item.color">
+                            </div>
+                        </div>
+                        <span class="detection-percent" [style.border-color]="item.color" [style.color]="item.color">
+                            {{ item.percent }}%
+                        </span>
+                    </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -33,8 +33,14 @@
   align-items: center;
   gap: 6px;
 
-  .sep { color: #CBD5E1; }
-  .current { color: #2A3B4C; font-weight: 500; }
+  .sep {
+    color: #CBD5E1;
+  }
+
+  .current {
+    color: #2A3B4C;
+    font-weight: 500;
+  }
 }
 
 // Section title
@@ -46,7 +52,7 @@
 }
 
 // Upload section
-.upload-section { }
+.upload-section {}
 
 .upload-grid {
   display: grid;
@@ -82,7 +88,9 @@
   align-items: center;
   gap: 8px;
 
-  svg { stroke: var(--primary-blue); }
+  svg {
+    stroke: var(--primary-blue);
+  }
 
   .upload-label {
     font-size: 0.85rem;
@@ -98,7 +106,9 @@
   gap: 8px;
   padding: 12px;
 
-  svg { stroke: #10B981; }
+  svg {
+    stroke: #10B981;
+  }
 
   .file-name {
     font-size: 0.72rem;
@@ -120,7 +130,7 @@
 }
 
 // Analysis section
-.analysis-section { }
+.analysis-section {}
 
 .analysis-subtitle {
   font-size: 0.85rem;
@@ -163,11 +173,163 @@
 }
 
 @media (max-width: 900px) {
+
   .upload-grid,
-  .analysis-grid { grid-template-columns: repeat(2, 1fr); }
+  .analysis-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 560px) {
+
   .upload-grid,
-  .analysis-grid { grid-template-columns: 1fr; }
+  .analysis-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Patient Info Modal
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  width: 100%;
+  max-width: 560px;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: #94A3B8;
+  cursor: pointer;
+  line-height: 1;
+
+  &:hover {
+    color: #1E2A3A;
+  }
+}
+
+.modal-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1E2A3A;
+  margin-bottom: 6px;
+}
+
+.modal-subtitle {
+  font-size: 0.83rem;
+  color: #64748B;
+  margin-bottom: 24px;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  label {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #374151;
+  }
+
+  input,
+  select {
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 9px 12px;
+    font-size: 0.85rem;
+    color: #1E2A3A;
+    outline: none;
+    transition: border-color 0.2s;
+    background: #fff;
+
+    &::placeholder {
+      color: #CBD5E1;
+    }
+
+    &:focus {
+      border-color: var(--primary-blue);
+    }
+  }
+}
+
+.required {
+  color: #EF4444;
+}
+
+.consent-box {
+  background: #F8FBFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 14px 16px;
+
+  .consent-label {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    cursor: pointer;
+    font-size: 0.82rem;
+    color: #374151;
+    line-height: 1.5;
+
+    input[type="checkbox"] {
+      margin-top: 3px;
+      accent-color: var(--primary-blue);
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+  }
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+
+  .btn-cancel {
+    padding: 10px 20px;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    background: #fff;
+    color: #374151;
+    font-size: 0.88rem;
+    cursor: pointer;
+
+    &:hover {
+      background: #F1F5F9;
+    }
+  }
 }

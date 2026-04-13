@@ -1,7 +1,76 @@
+<!-- Patient Information Modal -->
+@if (showPatientModal) {
+<div class="modal-overlay">
+  <div class="modal-card">
+    <button class="modal-close" (click)="cancelModal()">&#x2715;</button>
+    <h2 class="modal-title">Patient Information Form</h2>
+    <p class="modal-subtitle">Please fill in the patient details before uploading medical images.</p>
+
+    <form class="modal-form" (ngSubmit)="continueToUpload()">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Patient Name <span class="required">*</span></label>
+          <input type="text" [(ngModel)]="patientForm.patientName" name="patientName" placeholder="Enter patient name"
+            required />
+        </div>
+        <div class="form-group">
+          <label>Age <span class="required">*</span></label>
+          <input type="number" [(ngModel)]="patientForm.age" name="age" placeholder="Enter age" required />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Gender</label>
+          <select [(ngModel)]="patientForm.gender" name="gender">
+            <option value="" disabled selected></option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Patient ID <span class="required">*</span></label>
+          <input type="text" [(ngModel)]="patientForm.patientId" name="patientId" placeholder="Enter patient ID"
+            required />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Doctor Name <span class="required">*</span></label>
+          <input type="text" [(ngModel)]="patientForm.doctorName" name="doctorName" placeholder="Enter doctor name"
+            required />
+        </div>
+        <div class="form-group">
+          <label>Department</label>
+          <input type="text" [(ngModel)]="patientForm.department" name="department" placeholder="e.g., Ophthalmology" />
+        </div>
+      </div>
+
+      <div class="consent-box">
+        <label class="consent-label">
+          <input type="checkbox" [(ngModel)]="patientForm.consent" name="consent" required />
+          <span>
+            <strong>Patient Consent for Research <span class="required">*</span></strong><br />
+            I confirm that the patient has given informed consent for their medical images to be used for future
+            research and analysis purposes. All data will be anonymized and handled according to medical privacy
+            regulations.
+          </span>
+        </label>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn btn-cancel" (click)="cancelModal()">Cancel</button>
+        <button type="submit" class="btn btn-primary">Continue to Upload</button>
+      </div>
+    </form>
+  </div>
+</div>
+}
+
 <div class="dashboard-layout" [class.sidebar-collapsed]="sidebarCollapsed">
-  <app-dashboard-sidebar
-    [collapsed]="sidebarCollapsed"
-    (toggleSidebar)="toggleSidebar()">
+  <app-dashboard-sidebar [collapsed]="sidebarCollapsed" (toggleSidebar)="toggleSidebar()">
   </app-dashboard-sidebar>
 
   <div class="dashboard-main">
@@ -22,33 +91,28 @@
 
         <div class="upload-grid">
           @for (slot of uploadSlots; track slot) {
-            <div class="upload-card" (click)="triggerUpload(slot)">
-              <input
-                [id]="'file-input-' + slot"
-                type="file"
-                accept="image/*"
-                class="file-input"
-                (change)="onFileSelected($event, slot)"
-              />
-              @if (uploadedFiles[slot]) {
-                <div class="uploaded-preview">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32">
-                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
-                    <polyline points="22 4 12 14.01 9 11.01"/>
-                  </svg>
-                  <span class="file-name">{{ uploadedFiles[slot]?.name }}</span>
-                </div>
-              } @else {
-                <div class="upload-placeholder">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="36" height="36">
-                    <polyline points="16 16 12 12 8 16"/>
-                    <line x1="12" y1="12" x2="12" y2="21"/>
-                    <path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/>
-                  </svg>
-                  <span class="upload-label">Upload</span>
-                </div>
-              }
+          <div class="upload-card" (click)="triggerUpload(slot)">
+            <input [id]="'file-input-' + slot" type="file" accept="image/*" class="file-input"
+              (change)="onFileSelected($event, slot)" />
+            @if (uploadedFiles[slot]) {
+            <div class="uploaded-preview">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <span class="file-name">{{ uploadedFiles[slot]?.name }}</span>
             </div>
+            } @else {
+            <div class="upload-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="36" height="36">
+                <polyline points="16 16 12 12 8 16" />
+                <line x1="12" y1="12" x2="12" y2="21" />
+                <path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3" />
+              </svg>
+              <span class="upload-label">Upload</span>
+            </div>
+            }
+          </div>
           }
         </div>
 
@@ -64,10 +128,10 @@
 
         <div class="analysis-grid">
           @for (result of analysisResults; track result.label) {
-            <div class="analysis-card">
-              <div class="analysis-img-ph"></div>
-              <span class="analysis-badge">{{ result.label }}</span>
-            </div>
+          <div class="analysis-card">
+            <div class="analysis-img-ph"></div>
+            <span class="analysis-badge">{{ result.label }}</span>
+          </div>
           }
         </div>
       </div>
