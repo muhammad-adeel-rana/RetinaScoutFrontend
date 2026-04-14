@@ -48,6 +48,16 @@ export const routes: Routes = [
     data: { hideShell: true },
   },
   {
+    path: 'dashboard/patients',
+    loadComponent: () => import('./dashboards/ophthalmologist/pages/patient-records/patient-records').then(m => m.PatientRecords),
+    data: { hideShell: true },
+  },
+  {
+    path: 'dashboard/patients/:id',
+    loadComponent: () => import('./dashboards/ophthalmologist/pages/patient-detail/patient-detail').then(m => m.PatientDetail),
+    data: { hideShell: true },
+  },
+  {
     path: '**',
     redirectTo: '',
   },

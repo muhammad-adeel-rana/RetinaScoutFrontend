@@ -1,0 +1,148 @@
+<div class="dashboard-layout" [class.sidebar-collapsed]="sidebarCollapsed">
+  <app-dashboard-sidebar [collapsed]="sidebarCollapsed" (toggleSidebar)="toggleSidebar()"></app-dashboard-sidebar>
+
+  <div class="dashboard-main">
+    <app-dashboard-navbar></app-dashboard-navbar>
+
+    <div class="page-content">
+
+      @if (patient) {
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+          <span>Home</span><span class="sep">›</span>
+          <a routerLink="/dashboard/patients" class="bc-link">Patient Records</a>
+          <span class="sep">›</span>
+          <span class="current">{{ patient.name }}</span>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="filter-tabs">
+          @for (f of filters; track f) {
+            <button class="filter-tab" [class.active]="activeFilter === f" (click)="activeFilter = f">{{ f }}</button>
+          }
+        </div>
+
+        <!-- Patient Profile Card -->
+        <div class="profile-card">
+          <div class="profile-left">
+            <div class="patient-avatar">{{ patient.avatar }}</div>
+            <div class="patient-meta">
+              <span class="patient-label">Patient</span>
+              <h2 class="patient-name">{{ patient.name }}</h2>
+              <div class="meta-grid">
+                <span class="meta-item">Gender: {{ patient.gender }}</span>
+                <span class="meta-item">Last upload: {{ patient.lastUpload }}</span>
+                <span class="meta-item">Age: {{ patient.age }}</span>
+                <span class="meta-item">Dept: {{ patient.dept }}</span>
+                <span class="meta-item">Vision: {{ patient.vision }}</span>
+                <span class="meta-item">Patient nr: {{ patient.patientNr }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Grid -->
+        <div class="detail-grid">
+
+          <!-- LEFT COLUMN -->
+          <div class="left-col">
+
+            <!-- Upload History -->
+            <div class="detail-card">
+              <h3 class="card-title">Upload history</h3>
+              <div class="history-list">
+                @for (item of patient.uploadHistory; track item.title) {
+                  <div class="history-item">
+                    <div class="history-icon">
+                      @if (item.icon === 'list') {
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16">
+                          <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/>
+                          <line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/>
+                          <line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
+                        </svg>
+                      } @else {
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16">
+                          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                      }
+                    </div>
+                    <div class="history-info">
+                      <span class="history-title">{{ item.title }}</span>
+                      <span class="history-doctor">{{ item.doctor }}</span>
+                    </div>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" class="chevron">
+                      <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                  </div>
+                }
+              </div>
+            </div>
+
+            <!-- Prescription History -->
+            <div class="detail-card">
+              <h3 class="card-title">Prescription history</h3>
+              <div class="rx-list">
+                @for (rx of patient.prescriptions; track rx.name) {
+                  <div class="rx-item">
+                    <div class="rx-badge">Rx</div>
+                    <div class="rx-info">
+                      <span class="rx-name">{{ rx.name }}</span>
+                      <span class="rx-freq">{{ rx.frequency }}</span>
+                    </div>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" class="chevron">
+                      <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                  </div>
+                }
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT COLUMN -->
+          <div class="right-col">
+
+            <!-- Eye Info -->
+            <div class="detail-card">
+              <h3 class="card-title">Eye info</h3>
+              <ul class="eye-info-list">
+                @for (info of patient.eyeInfo; track info) {
+                  <li>{{ info }}</li>
+                }
+              </ul>
+            </div>
+
+            <!-- Eye Pressure Chart -->
+            <div class="detail-card">
+              <h3 class="card-title">Eye pressure (mmHg)</h3>
+              <div class="pressure-chart">
+                <div class="y-axis">
+                  <span>24</span><span>22</span><span>20</span>
+                  <span>18</span><span>16</span><span>14</span>
+                  <span>12</span><span>10</span>
+                </div>
+                <div class="bars">
+                  @for (val of patient.eyePressure; track $index) {
+                    <div class="bar-col">
+                      <div class="bar-wrap">
+                        <div class="bar" [style.height]="getBarHeight(val)">
+                          <span class="bar-val">{{ val }}</span>
+                        </div>
+                      </div>
+                    </div>
+                  }
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      } @else {
+        <div class="not-found">Patient not found.</div>
+      }
+
+    </div>
+  </div>
+</div>

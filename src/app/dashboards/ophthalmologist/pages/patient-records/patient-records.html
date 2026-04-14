@@ -1,0 +1,103 @@
+<div class="dashboard-layout" [class.sidebar-collapsed]="sidebarCollapsed">
+  <app-dashboard-sidebar
+    [collapsed]="sidebarCollapsed"
+    (toggleSidebar)="toggleSidebar()">
+  </app-dashboard-sidebar>
+
+  <div class="dashboard-main">
+    <app-dashboard-navbar></app-dashboard-navbar>
+
+    <div class="page-content">
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <span>Home</span>
+        <span class="sep">›</span>
+        <span class="current">Patient Records</span>
+      </div>
+
+      <!-- Filter tabs -->
+      <div class="filter-tabs">
+        @for (f of filters; track f) {
+          <button
+            class="filter-tab"
+            [class.active]="activeFilter() === f"
+            (click)="setFilter(f)">
+            {{ f }}
+          </button>
+        }
+      </div>
+
+      <!-- Patient Cards Grid -->
+      <div class="patients-grid">
+        @for (patient of filteredPatients; track patient.id) {
+          <a class="patient-card" [routerLink]="['/dashboard/patients', patient.id]">
+
+            <!-- Card Header -->
+            <div class="card-header">
+              <div class="patient-info">
+                <div class="patient-avatar">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22">
+                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="patient-name">{{ patient.name }}</div>
+                  <div class="patient-id">{{ patient.patientId }}</div>
+                </div>
+              </div>
+              <span class="status-badge" [class]="getStatusClass(patient.status)">
+                {{ patient.status }}
+              </span>
+            </div>
+
+            <!-- Dates -->
+            <div class="card-dates">
+              <div class="date-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="14" height="14">
+                  <rect x="3" y="4" width="18" height="18" rx="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                <span>Registration: <strong>{{ patient.registration }}</strong></span>
+              </div>
+              <div class="date-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="14" height="14">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span>Last Visit: <strong>{{ patient.lastVisit }}</strong></span>
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="card-divider"></div>
+
+            <!-- Condition + Images -->
+            <div class="card-footer">
+              <div class="condition-info">
+                <span class="condition-label">Condition</span>
+                <span class="condition-name">{{ patient.condition }}</span>
+              </div>
+              <div class="images-count">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <polyline points="21 15 16 10 5 21"/>
+                </svg>
+                <span>{{ patient.images }} images</span>
+              </div>
+            </div>
+
+            <!-- Age tag -->
+            <div class="age-tag">Age: {{ patient.age }}</div>
+
+          </a>
+        }
+      </div>
+
+    </div>
+  </div>
+</div>
