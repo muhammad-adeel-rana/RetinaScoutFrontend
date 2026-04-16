@@ -57,13 +57,19 @@
             <!-- Image Viewer -->
             <div class="viewer-grid">
 
-                <!-- Original Image -->
+                <!-- Left: Original Image -->
                 <div class="viewer-card">
-                    <div class="image-placeholder"></div>
+                    <div class="image-area">
+                        @if (originalImageSrc) {
+                        <img [src]="originalImageSrc" alt="Original retinal image" class="retinal-img" />
+                        } @else {
+                        <div class="image-placeholder"></div>
+                        }
+                    </div>
                     <div class="viewer-footer">
                         <div class="viewer-meta">
                             <span class="viewer-title">Original Image</span>
-                            <span class="viewer-sub">Alex Johnson · Right Eye</span>
+                            <span class="viewer-sub">{{ patient.name }} · Right Eye</span>
                         </div>
                         <div class="zoom-controls">
                             <button class="zoom-btn" (click)="zoomOut('original')">
@@ -88,13 +94,19 @@
                     </div>
                 </div>
 
-                <!-- Mask Overlay -->
+                <!-- Right: Mask Overlay (Canvas) -->
                 <div class="viewer-card">
-                    <div class="image-placeholder"></div>
+                    <div class="image-area">
+                        @if (maskOverlaySrc) {
+                        <canvas #maskCanvas class="retinal-img"></canvas>
+                        } @else {
+                        <div class="image-placeholder"></div>
+                        }
+                    </div>
                     <div class="viewer-footer">
                         <div class="viewer-meta">
                             <span class="viewer-title">Mask Overlay</span>
-                            <span class="viewer-sub">Alex Johnson · Right Eye</span>
+                            <span class="viewer-sub">{{ patient.name }} · Right Eye</span>
                         </div>
                         <div class="zoom-controls">
                             <button class="zoom-btn" (click)="zoomOut('mask')">
@@ -118,7 +130,7 @@
                         </div>
                     </div>
 
-                    <!-- Overlay tags -->
+                    <!-- Overlay tag toggles -->
                     <div class="overlay-tags">
                         @for (tag of overlayTags; track tag.label; let i = $index) {
                         <button class="overlay-tag" [class.active]="tag.active" [style.--tag-color]="tag.color"
@@ -128,10 +140,11 @@
                         }
                     </div>
 
-                    <!-- Opacity -->
+                    <!-- Opacity slider -->
                     <div class="opacity-row">
                         <span class="opacity-label">Opacity level</span>
-                        <input type="range" min="0" max="100" [(ngModel)]="opacityLevel" class="opacity-slider" />
+                        <input type="range" min="0" max="100" [(ngModel)]="opacityLevel"
+                            (ngModelChange)="onOpacityChange()" class="opacity-slider" />
                         <span class="opacity-value">{{ opacityLevel }}%</span>
                     </div>
                 </div>
@@ -147,11 +160,12 @@
                         <span class="detection-index">{{ (i + 1).toString().padStart(2, '0') }}</span>
                         <span class="detection-label" [style.color]="item.color">{{ item.label }}</span>
                         <div class="detection-bar-wrap">
-                            <div class="detection-bar" [style.width.%]="item.percent" [style.background]="item.color">
+                            <div class="detection-bar" [style.width.%]="item.hasData ? item.percent : 0"
+                                [style.background]="item.color">
                             </div>
                         </div>
                         <span class="detection-percent" [style.border-color]="item.color" [style.color]="item.color">
-                            {{ item.percent }}%
+                            {{ item.hasData ? item.percent + '%' : 'N/A' }}
                         </span>
                     </div>
                     }

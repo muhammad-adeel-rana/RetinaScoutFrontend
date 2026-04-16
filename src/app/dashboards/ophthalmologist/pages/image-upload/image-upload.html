@@ -117,7 +117,17 @@
         </div>
 
         <div class="upload-actions">
-          <button class="btn btn-primary view-btn">View Analysis</button>
+          @if (errorMessage) {
+          <p class="error-msg">{{ errorMessage }}</p>
+          }
+          <button class="btn btn-primary view-btn" [disabled]="isAnalyzing || !hasUploadedFiles"
+            (click)="viewAnalysis()">
+            @if (isAnalyzing) {
+            <span class="spinner"></span> Analyzing...
+            } @else {
+            View Analysis
+            }
+          </button>
         </div>
       </div>
 

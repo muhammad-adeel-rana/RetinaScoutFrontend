@@ -131,10 +131,27 @@
     overflow: hidden;
 }
 
-.image-placeholder {
+.image-area {
     width: 100%;
     aspect-ratio: 4/3;
+    background: #000;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
     background: #E2E8F0;
+}
+
+.retinal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 .viewer-footer {
