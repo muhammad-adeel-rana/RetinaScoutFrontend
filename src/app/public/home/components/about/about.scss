@@ -1,11 +1,25 @@
 .about-card {
-  background-color: #F8FBFF;
   border-radius: var(--border-radius-lg);
   padding: 60px 40px;
-  border: 1px solid var(--border-color);
+  border: 2px solid transparent;
+  background:
+    /* 1. The solid inner background of the card */
+    radial-gradient(114.87% 113.36% at 40.95% -10.45%, #FFFFFF 32.81%, #F8FDFF 97.64%) padding-box,
+    /* 2. Your exact Figma gradient for the border */
+
+    linear-gradient(96.34deg, #C5ECFF 0.94%, #95DDFF 96.46%) border-box;
+  /* ---------------------------------- */
 
   .section-title {
-    margin-bottom: 40px;
+    top: 56px;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #000000;
+
   }
 }
 
@@ -16,22 +30,25 @@
 
   .img-wrapper {
     flex: 1;
-    min-width: 300px;
-    height: 350px;
+    /* Optional: This centers the image placeholder if the wrapper grows wider than 490px */
+    display: flex;
+    justify-content: center;
 
     .image-placeholder {
+      /* 🛠️ THE FIX: Use max-width instead of a rigid width */
       width: 100%;
-      height: 100%;
-      background-color: #E2E8F0;
+      width: 490px;
+      height: 376px;
+      /* Height is fine to keep fixed here! */
+
+      background-color: #FFFFFF;
       border-radius: var(--border-radius-md);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #64748B;
-      font-weight: 500;
-      border: 2px dashed #CBD5E1;
       overflow: hidden;
-      bottom: 100px;
+
+      /* Removed 'bottom: 100px;' because without position: absolute, it does nothing */
     }
   }
 
@@ -40,13 +57,38 @@
     min-width: 300px;
 
     p {
-      margin-bottom: 20px;
-      font-size: 1.05rem;
-      line-height: 1.7;
+      font-weight: 600;
+      /* Removed invalid 'font-style: SemiBold;' */
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0%;
+      color: #6D6D6D;
+      text-align: justify;
+
+      /* 🎯 THE FIX: Pushes everything below it down by 30px */
+      margin-bottom: 30px;
     }
 
     .btn {
-      margin-top: 10px;
+      width: 334px;
+      height: 60px;
+      border-radius: 12px;
+
+      /* Cleaned up padding into a shorthand: top/bottom 18px, left/right 36px */
+      padding: 18px 36px;
+      gap: 8px;
+      background: #00A4F4;
+
+      /* Center the text inside the button */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      /* Assuming your text is white based on the image */
+      color: #FFFFFF;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
     }
   }
 }

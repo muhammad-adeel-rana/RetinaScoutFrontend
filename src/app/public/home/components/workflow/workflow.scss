@@ -1,3 +1,22 @@
+.section-title {
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 40px;
+  line-height: 52px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.section-subtitle {
+  width: 766px;
+  height: 48px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
 .workflow-section {
   background-color: var(--bg-white);
 }
@@ -23,50 +42,66 @@
   &:not(:last-child)::after {
     content: '';
     position: absolute;
-    left: 20px;
+    left: 26px;
+    /* Make sure this centers perfectly under your step icon! */
     top: 50px;
     bottom: -20px;
     width: 2px;
-    background-color: #E2E8F0;
     z-index: 1;
+
+    /* 🎯 THE FIX: Custom 8px dash and 8px gap using a gradient */
+    background-image: linear-gradient(to bottom, #B6E6FF, 50%, transparent 50%);
+    background-size: 2px 16px;
+    /* 2px width, 16px total height (8px color + 8px transparent) */
+    background-repeat: repeat-y;
+
+    /* Removed invalid properties: background-color, border-width, border-style, dashes */
   }
 }
 
 .step-number {
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  background-color: #E2E8F0;
-  color: #64748B;
+  background-color: #0095DE;
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 1.125rem;
   flex-shrink: 0;
   z-index: 2;
   transition: all 0.3s;
+  font-style: Bold;
+  font-size: 32px;
+  line-height: 32px;
+  letter-spacing: 0%;
+  text-align: center;
+
 }
 
-.step-item.active .step-number {
-  background-color: var(--primary-blue);
-  color: white;
-  box-shadow: 0 0 0 8px rgba(0, 162, 255, 0.1);
-}
 
 .step-text {
   padding-top: 8px;
 
   h4 {
-    font-size: 1.25rem;
-    margin-bottom: 8px;
-    color: var(--text-dark);
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 28px;
+    line-height: 40px;
+    letter-spacing: 0%;
+    color: #3d3d3d;
+
   }
 
   p {
-    font-size: 0.9375rem;
-    line-height: 1.6;
-    color: var(--text-gray);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    color: #6d6d6d;
+    text-align: justify;
+
   }
 }
 
@@ -77,52 +112,75 @@
 
 .workflow-image-container {
   position: relative;
-  height: 450px;
   padding: 20px;
-  background-color: #F8FBFF;
-  border-radius: var(--border-radius-lh);
+  width: 374px;
+  height: 328px;
+  border-radius: 24px;
+  background: radial-gradient(94.62% 124.56% at 40.95% -10.45%, #FFFFFF 44.28%, #CEEFFF 97.64%)
+    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+  ;
+  margin-right: 20px;
 
   .image-placeholder {
-    width: 100%;
-    height: 100%;
-    background-color: #E2E8F0;
-    border-radius: var(--border-radius-md);
+    position: absolute;
+    width: 466px;
+    height: 483px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #64748B;
-    font-weight: 500;
+    right: -160px;
+    top: -100px;
+
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+    top: -500px;
+    display: block;
+    object-fit: cover;
   }
 }
 
 .certified-badge {
   position: absolute;
-  bottom: -20px;
-  right: 20px;
+  bottom: 20px;
+  right: -160px;
   background-color: white;
-  padding: 12px 24px;
-  border-radius: 30px;
+
   box-shadow: var(--shadow-lg);
-  font-weight: 600;
-  font-size: 0.875rem;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: #0069AB;
+
   display: flex;
   align-items: center;
-  gap: 8px;
+
+  width: 376px;
+  height: 46px;
+  border-radius: 10px;
+  padding-top: 8px;
+  padding-right: 24px;
+  padding-bottom: 8px;
+  padding-left: 24px;
+  gap: 12px;
+
 
   .star-icon {
-    color: var(--primary-blue);
+    color: #0069AB;
     font-size: 1.2rem;
   }
 }
 
 .cross-accent {
   position: absolute;
-  top: 40px;
-  left: -20px;
-  width: 60px;
-  height: 60px;
-  background-color: var(--primary-blue);
-  clip-path: polygon(33% 0, 66% 0, 66% 33%, 100% 33%, 100% 66%, 66% 66%, 66% 100%, 33% 100%, 33% 66%, 0 66%, 0 33%, 33% 33%);
+  top: -30px;
+  left: -0px;
+  width: 118px;
+  height: 110px;
 }
 
 @media (max-width: 768px) {
