@@ -212,7 +212,9 @@
     cursor: pointer;
     transition: background 0.2s;
 
-    &:hover { background: #1a2b3c; }
+    &:hover {
+      background: #1a2b3c;
+    }
   }
 }
 
@@ -247,5 +249,39 @@
     }
   }
 
-  .pricing-title { font-size: 2rem; }
+  .pricing-title {
+    font-size: 2rem;
+  }
+}
+
+// ===== ADDITIONAL RESPONSIVE BREAKPOINTS =====
+@media (min-width: 1440px) {
+  .pricing-grid {
+    max-width: 1100px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .pricing-grid {
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-title {
+    font-size: 1.8rem;
+  }
+
+  .pricing-grid {
+    max-width: 100%;
+  }
+
+  .plan-card {
+    padding: 24px 20px 20px;
+  }
+
+  .billing-toggle .toggle-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
 }

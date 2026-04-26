@@ -17,9 +17,17 @@
   &.collapsed {
     width: 60px;
 
-    .nav-label { display: none; }
-    .logo-text { display: none; }
-    .logo-sub { display: none; }
+    .nav-label {
+      display: none;
+    }
+
+    .logo-text {
+      display: none;
+    }
+
+    .logo-sub {
+      display: none;
+    }
   }
 }
 
@@ -40,7 +48,11 @@
     justify-content: center;
     flex-shrink: 0;
 
-    svg { width: 18px; height: 18px; stroke: #fff; }
+    svg {
+      width: 18px;
+      height: 18px;
+      stroke: #fff;
+    }
   }
 
   .logo-text {
@@ -49,7 +61,7 @@
     color: #0069AB;
     line-height: 1;
   }
-  
+
   .logo-accent {
     color: var(--primary-blue);
   }
@@ -75,7 +87,7 @@
   justify-content: center;
   cursor: pointer;
   z-index: 10;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 
   svg {
     width: 12px;
@@ -118,14 +130,20 @@
   &:hover {
     background: #DBEAFE;
     color: #1D4ED8;
-    svg { stroke: #1D4ED8; }
+
+    svg {
+      stroke: #1D4ED8;
+    }
   }
 
   &.active {
     background: #BFDBFE;
     color: #1D4ED8;
     font-weight: 600;
-    svg { stroke: #1D4ED8; }
+
+    svg {
+      stroke: #1D4ED8;
+    }
   }
 }
 
@@ -135,12 +153,61 @@
 
   .signout-item {
     color: #94A3B8;
-    svg { stroke: #94A3B8; }
+
+    svg {
+      stroke: #94A3B8;
+    }
 
     &:hover {
       background: #FEE2E2;
       color: #DC2626;
-      svg { stroke: #DC2626; }
+
+      svg {
+        stroke: #DC2626;
+      }
+    }
+  }
+}
+
+// ===== RESPONSIVE — sidebar auto-collapse =====
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 60px;
+
+    .nav-label {
+      display: none;
+    }
+
+    .logo-text {
+      display: none;
+    }
+
+    .logo-sub {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    width: 200px;
+    transition: transform 0.3s ease, width 0.3s ease;
+
+    .nav-label {
+      display: block;
+    }
+
+    .logo-text {
+      display: block;
+    }
+
+    .logo-sub {
+      display: block;
+    }
+
+    &.mobile-open {
+      transform: translateX(0);
     }
   }
 }

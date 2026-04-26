@@ -20,7 +20,7 @@
     position: absolute;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
 
     img {
       width: 100%;
@@ -36,7 +36,7 @@
       left: 0;
       z-index: 1;
       background-color: #E8EEFF;
-    } 
+    }
 
     &--front {
       width: 406px;
@@ -200,7 +200,9 @@
       justify-content: center;
       flex-shrink: 0;
 
-      svg { fill: #fff; }
+      svg {
+        fill: #fff;
+      }
     }
 
     .phone-info {
@@ -229,14 +231,61 @@
     gap: 40px;
   }
 
-  .hero-left { height: 320px; }
+  .hero-left {
+    height: 320px;
+  }
 }
 
 @media (max-width: 640px) {
-  .feature-cards { grid-template-columns: 1fr; }
-  .hero-heading { font-size: 1.6rem; }
+  .feature-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-heading {
+    font-size: 1.6rem;
+  }
+
   .hero-left {
-    .img-card--back { width: 180px; height: 240px; }
-    .img-card--front { width: 210px; height: 290px; left: 60px; }
+    .img-card--back {
+      width: 180px;
+      height: 240px;
+    }
+
+    .img-card--front {
+      width: 210px;
+      height: 290px;
+      left: 60px;
+    }
+  }
+}
+
+// ===== ADDITIONAL RESPONSIVE BREAKPOINTS =====
+@media (min-width: 1440px) {
+  .about-hero {
+    padding: 80px 20px 100px;
+  }
+
+  .hero-grid {
+    gap: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero {
+    padding: 48px 12px 60px;
+  }
+
+  .hero-heading {
+    font-size: 1.5rem;
+  }
+
+  .hero-left {
+    height: 240px;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
   }
 }

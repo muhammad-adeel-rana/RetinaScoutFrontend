@@ -45,7 +45,9 @@
   border-bottom: 1px solid #F8FBFF;
   align-items: flex-start;
 
-  &:last-child { border-bottom: none; }
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .activity-dot {
@@ -70,5 +72,16 @@
   .activity-time {
     font-size: 0.7rem;
     color: #94A3B8;
+  }
+}
+
+// ===== RESPONSIVE =====
+@media (max-width: 480px) {
+  .card {
+    padding: 14px 16px;
+  }
+
+  .activity-content .activity-text {
+    font-size: 0.78rem;
   }
 }

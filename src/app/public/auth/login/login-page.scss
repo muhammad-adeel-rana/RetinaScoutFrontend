@@ -59,8 +59,13 @@
     outline: none;
     transition: border-color 0.2s;
 
-    &::placeholder { color: #aab4be; }
-    &:focus { border-color: var(--text-dark); }
+    &::placeholder {
+      color: #aab4be;
+    }
+
+    &:focus {
+      border-color: var(--text-dark);
+    }
   }
 }
 
@@ -69,7 +74,11 @@
   justify-content: space-between;
   align-items: center;
 
-  label { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); }
+  label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
 
   .forgot-link {
     font-size: 0.8rem;
@@ -82,7 +91,9 @@
 .input-icon-wrap {
   position: relative;
 
-  input { padding-right: 42px; }
+  input {
+    padding-right: 42px;
+  }
 
   &.input-error input {
     border-color: #e53e3e;
@@ -147,7 +158,9 @@
   transition: background 0.2s;
   font-family: var(--font-family);
 
-  &:hover { background: #1a2b3c; }
+  &:hover {
+    background: #1a2b3c;
+  }
 }
 
 .auth-divider {
@@ -190,7 +203,9 @@
   transition: background 0.2s;
   font-family: var(--font-family);
 
-  &:hover { background: var(--bg-light); }
+  &:hover {
+    background: var(--bg-light);
+  }
 }
 
 .auth-role-switch {
@@ -199,25 +214,60 @@
   color: var(--text-gray);
   margin: 0;
 
-  a { color: var(--text-dark); }
+  a {
+    color: var(--text-dark);
+  }
 }
 
 .auth-image-side {
-  padding: 40px 40px 40px 20px;
+  padding: 56px 40px 40px 20px;
   display: flex;
   align-items: center;
 
   .auth-img-ph {
-    width: 100%;
-    height: 100%;
+    width: 627px;
+    height: 913px;
     min-height: 600px;
-    border-radius: var(--border-radius-lg);
+    border-radius: 51px;
     background: linear-gradient(135deg, #c8d8e8, #8aafc8);
   }
 }
 
 @media (max-width: 768px) {
-  .auth-layout { grid-template-columns: 1fr; }
-  .auth-image-side { display: none; }
-  .auth-form-side { padding: 40px 24px; }
+  .auth-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-image-side {
+    display: none;
+  }
+
+  .auth-form-side {
+    padding: 40px 24px;
+  }
+}
+
+// ===== ADDITIONAL RESPONSIVE BREAKPOINTS =====
+@media (max-width: 1024px) {
+  .auth-layout {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+
+  .auth-form-side {
+    padding: 60px 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-form-side {
+    padding: 32px 16px;
+  }
+
+  .auth-title {
+    font-size: 1.8rem;
+  }
+
+  .social-btns {
+    grid-template-columns: 1fr;
+  }
 }

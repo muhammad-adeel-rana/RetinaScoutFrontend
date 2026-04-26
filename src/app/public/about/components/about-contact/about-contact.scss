@@ -11,7 +11,9 @@
 }
 
 .contact-form-wrap {
-  .section-heading { margin-bottom: 28px; }
+  .section-heading {
+    margin-bottom: 28px;
+  }
 
   .contact-form {
     display: flex;
@@ -29,7 +31,9 @@
       flex-direction: column;
       gap: 6px;
 
-      &.full { grid-column: 1 / -1; }
+      &.full {
+        grid-column: 1 / -1;
+      }
 
       label {
         font-size: 0.85rem;
@@ -37,7 +41,8 @@
         color: var(--text-dark);
       }
 
-      input, textarea {
+      input,
+      textarea {
         padding: 10px 14px;
         border: 1.5px solid var(--border-color);
         border-radius: var(--border-radius-sm);
@@ -48,14 +53,24 @@
         transition: border-color 0.3s;
         outline: none;
 
-        &::placeholder { color: #aab4be; }
-        &:focus { border-color: var(--primary-blue); }
+        &::placeholder {
+          color: #aab4be;
+        }
+
+        &:focus {
+          border-color: var(--primary-blue);
+        }
       }
 
-      textarea { resize: vertical; }
+      textarea {
+        resize: vertical;
+      }
     }
 
-    .submit-btn { align-self: flex-start; margin-top: 4px; }
+    .submit-btn {
+      align-self: flex-start;
+      margin-top: 4px;
+    }
   }
 }
 
@@ -78,6 +93,17 @@
 }
 
 @media (max-width: 640px) {
+  .contact-form-wrap .contact-form .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ===== ADDITIONAL RESPONSIVE BREAKPOINTS =====
+@media (max-width: 480px) {
+  .contact-image .contact-img {
+    height: 260px;
+  }
+
   .contact-form-wrap .contact-form .form-row {
     grid-template-columns: 1fr;
   }

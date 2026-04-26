@@ -35,7 +35,9 @@
     vertical-align: middle;
   }
 
-  tr:last-child td { border-bottom: none; }
+  tr:last-child td {
+    border-bottom: none;
+  }
 }
 
 .doc-cell {
@@ -59,9 +61,45 @@
     }
   }
 
-  .doc-name { font-size: 0.82rem; font-weight: 600; color: #1E2A3A; line-height: 1; margin-bottom: 2px; }
-  .doc-role { font-size: 0.68rem; color: #94A3B8; }
+  .doc-name {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #1E2A3A;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .doc-role {
+    font-size: 0.68rem;
+    color: #94A3B8;
+  }
 }
 
-.break-time { color: #64748B; font-size: 0.8rem; }
-.designation { color: #64748B; font-size: 0.78rem; }
+.break-time {
+  color: #64748B;
+  font-size: 0.8rem;
+}
+
+.designation {
+  color: #64748B;
+  font-size: 0.78rem;
+}
+
+// ===== RESPONSIVE =====
+@media (max-width: 768px) {
+  .card {
+    padding: 14px 16px;
+  }
+
+  .avail-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 480px) {
+  .doc-cell .doc-role {
+    display: none;
+  }
+}

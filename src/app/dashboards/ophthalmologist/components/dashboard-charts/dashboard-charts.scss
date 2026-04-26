@@ -35,7 +35,9 @@
     padding: 4px 10px;
     border-radius: 6px;
 
-    svg { stroke: #64748B; }
+    svg {
+      stroke: #64748B;
+    }
   }
 
   .more-btn {
@@ -108,10 +110,19 @@
   padding: 5px 8px;
   white-space: nowrap;
   z-index: 5;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
-  span { display: block; font-size: 0.62rem; color: #94A3B8; }
-  strong { display: block; font-size: 0.72rem; color: #fff; }
+  span {
+    display: block;
+    font-size: 0.62rem;
+    color: #94A3B8;
+  }
+
+  strong {
+    display: block;
+    font-size: 0.72rem;
+    color: #fff;
+  }
 
   &::after {
     content: '';
@@ -131,7 +142,9 @@
   border-radius: 3px 3px 0 0;
   min-height: 4px;
 
-  &--highlight { background: #10B981; }
+  &--highlight {
+    background: #10B981;
+  }
 }
 
 .bar-label {
@@ -187,5 +200,29 @@
 }
 
 @media (max-width: 900px) {
-  .charts-row { grid-template-columns: 1fr; }
+  .charts-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ===== ADDITIONAL RESPONSIVE BREAKPOINTS =====
+@media (max-width: 768px) {
+  .charts-row {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-card {
+    padding: 14px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bar-chart {
+    height: 120px;
+  }
+
+  .donut-wrap {
+    flex-direction: column;
+    gap: 14px;
+  }
 }

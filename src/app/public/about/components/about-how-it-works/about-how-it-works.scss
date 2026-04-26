@@ -2,7 +2,9 @@
 .how-it-works {
   background: var(--bg-light);
 
-  .section-heading { margin-bottom: 48px; }
+  .section-heading {
+    margin-bottom: 48px;
+  }
 
   .steps-row {
     display: flex;
@@ -53,7 +55,10 @@
     padding-top: 20px;
     flex-shrink: 0;
 
-    svg { width: 48px; height: 20px; }
+    svg {
+      width: 48px;
+      height: 20px;
+    }
   }
 }
 
@@ -68,5 +73,18 @@
   .how-it-works .step-arrow {
     transform: rotate(90deg);
     padding: 0;
+  }
+}
+
+// ===== ADDITIONAL RESPONSIVE BREAKPOINTS =====
+@media (max-width: 480px) {
+  .how-it-works .step {
+    max-width: 100%;
+    padding: 0 8px;
+  }
+
+  .how-it-works .step .step-icon {
+    width: 52px;
+    height: 52px;
   }
 }

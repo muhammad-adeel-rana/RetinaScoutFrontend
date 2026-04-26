@@ -44,7 +44,7 @@
     }
 
     .footer-logo-accent {
-      color:var(--primary-blue);
+      color: var(--primary-blue);
     }
   }
 
@@ -60,29 +60,30 @@
 .footer-links-col {
   flex: 1;
   min-width: 150px;
-  
+
   h4.col-title {
     font-size: 1.1rem;
-    color: #00A2FF !important; /* Specific cyan blue */
+    color: #00A2FF !important;
+    /* Specific cyan blue */
     margin-bottom: 24px;
     font-weight: 600;
   }
-  
+
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    
+
     li {
       margin-bottom: 20px;
-      
+
       a {
         color: #6B7C93;
         font-size: 0.95rem;
         font-weight: 500;
         text-decoration: none;
         transition: color 0.3s;
-        
+
         &:hover {
           color: #00A2FF;
         }
@@ -94,7 +95,8 @@
 .footer-divider {
   width: 100%;
   height: 1px;
-  background-color: #B2D8FA; /* very light blue divider */
+  background-color: #B2D8FA;
+  /* very light blue divider */
   margin-bottom: 24px;
 }
 
@@ -104,23 +106,24 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
-  
+
   .social-links {
     display: flex;
     gap: 16px;
     align-items: center;
-    
+
     a {
       display: inline-flex;
       text-decoration: none;
-      color: #00A2FF; /* Color of the icon */
-      
+      color: #00A2FF;
+      /* Color of the icon */
+
       svg {
-        width: 24px; 
+        width: 24px;
         height: 24px;
         fill: currentColor;
         transition: opacity 0.3s;
-        
+
         &:hover {
           opacity: 0.8;
           color: #008be5;
@@ -130,7 +133,8 @@
   }
 
   p {
-    color: #8CA2BA; /* slightly lighter text for copyright */
+    color: #8CA2BA;
+    /* slightly lighter text for copyright */
     font-size: 0.9rem;
     font-weight: 500;
     margin: 0;
@@ -143,13 +147,58 @@
     text-align: center;
     justify-content: center;
   }
-  
+
   .footer-brand {
     text-align: center;
     margin-bottom: 20px;
   }
-  
+
   .footer-links-col {
     text-align: center;
+  }
+}
+
+// ===== ADDITIONAL RESPONSIVE BREAKPOINTS =====
+@media (max-width: 1024px) {
+  .footer-grid {
+    gap: 30px;
+  }
+
+  .footer-brand {
+    flex: 1 1 100%;
+    text-align: center;
+
+    .brand-desc {
+      margin: 20px auto 0;
+    }
+
+    .footer-logo {
+      align-items: center;
+    }
+  }
+
+  .footer-links-col {
+    flex: 1;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 60px 0 24px;
+  }
+
+  .footer-grid {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .footer-links-col {
+    min-width: 100%;
+    text-align: center;
+  }
+
+  .footer-brand .footer-logo .footer-logo-text {
+    font-size: 28px;
   }
 }

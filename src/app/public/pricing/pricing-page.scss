@@ -74,21 +74,40 @@
   position: relative;
   transition: box-shadow 0.3s;
 
-  &:hover { box-shadow: var(--shadow-md); }
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
 
   &--featured {
     background: var(--text-dark);
     border-color: var(--text-dark);
     transform: scale(1.03);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 
-    .plan-name { color: #fff; }
-    .plan-tagline { color: rgba(255,255,255,0.6); }
+    .plan-name {
+      color: #fff;
+    }
+
+    .plan-tagline {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
     .price-currency,
-    .price-amount { color: #fff; }
-    .price-period { color: rgba(255,255,255,0.6); }
-    .plan-features li { color: rgba(255,255,255,0.85); }
-    .plan-note { color: rgba(255,255,255,0.5); }
+    .price-amount {
+      color: #fff;
+    }
+
+    .price-period {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .plan-features li {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .plan-note {
+      color: rgba(255, 255, 255, 0.5);
+    }
   }
 }
 
@@ -171,7 +190,9 @@
     font-weight: 700;
     flex-shrink: 0;
 
-    &--blue { color: var(--primary-blue); }
+    &--blue {
+      color: var(--primary-blue);
+    }
   }
 }
 
@@ -209,7 +230,10 @@
   margin: 0 auto 32px;
   line-height: 1.7;
 
-  a { color: var(--primary-blue); font-weight: 500; }
+  a {
+    color: var(--primary-blue);
+    font-weight: 500;
+  }
 }
 
 .faq-search {
@@ -239,7 +263,9 @@
     width: 100%;
     font-family: var(--font-family);
 
-    &::placeholder { color: #aab4be; }
+    &::placeholder {
+      color: #aab4be;
+    }
   }
 }
 
@@ -256,10 +282,14 @@
   cursor: pointer;
   transition: background 0.2s;
 
-  &:first-child { border-top: 1px solid var(--border-color); }
+  &:first-child {
+    border-top: 1px solid var(--border-color);
+  }
 
   &--open {
-    .faq-question { color: var(--text-dark); }
+    .faq-question {
+      color: var(--text-dark);
+    }
   }
 }
 
@@ -296,7 +326,9 @@
     background: var(--primary-blue);
     transform: rotate(180deg);
 
-    svg { stroke: #fff; }
+    svg {
+      stroke: #fff;
+    }
   }
 }
 
@@ -318,6 +350,39 @@
     max-width: 400px;
   }
 
-  .plan-card--featured { transform: none; }
-  .pricing-title { font-size: 1.8rem; }
+  .plan-card--featured {
+    transform: none;
+  }
+
+  .pricing-title {
+    font-size: 1.8rem;
+  }
+}
+
+// ===== ADDITIONAL RESPONSIVE BREAKPOINTS =====
+@media (min-width: 1440px) {
+  .pricing-grid {
+    max-width: 1100px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .pricing-grid {
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-title {
+    font-size: 1.6rem;
+  }
+
+  .pricing-grid {
+    max-width: 100%;
+  }
+
+  .billing-toggle .toggle-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
 }

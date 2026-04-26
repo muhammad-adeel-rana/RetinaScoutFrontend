@@ -26,9 +26,17 @@
       object-fit: cover;
     }
 
-    &--1 img { height: 160px; }
-    &--2 img { height: 160px; }
-    &--3 img { height: 160px; }
+    &--1 img {
+      height: 160px;
+    }
+
+    &--2 img {
+      height: 160px;
+    }
+
+    &--3 img {
+      height: 160px;
+    }
   }
 }
 
@@ -75,7 +83,9 @@
     }
   }
 
-  .btn { margin-top: 8px; }
+  .btn {
+    margin-top: 8px;
+  }
 }
 
 // ===== RESPONSIVE =====
@@ -83,5 +93,20 @@
   .why-choose .why-grid {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+}
+
+// ===== ADDITIONAL RESPONSIVE BREAKPOINTS =====
+@media (max-width: 480px) {
+
+  .why-images .retinal-img--1 img,
+  .why-images .retinal-img--2 img,
+  .why-images .retinal-img--3 img {
+    height: 120px;
+  }
+
+  .why-content .why-feature {
+    flex-direction: column;
+    gap: 10px;
   }
 }

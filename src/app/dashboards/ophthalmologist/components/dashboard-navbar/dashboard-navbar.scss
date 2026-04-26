@@ -21,7 +21,12 @@
   padding: 8px 14px;
   width: 260px;
 
-  svg { width: 15px; height: 15px; stroke: #94A3B8; flex-shrink: 0; }
+  svg {
+    width: 15px;
+    height: 15px;
+    stroke: #94A3B8;
+    flex-shrink: 0;
+  }
 
   input {
     border: none;
@@ -32,7 +37,9 @@
     width: 100%;
     font-family: inherit;
 
-    &::placeholder { color: #94A3B8; }
+    &::placeholder {
+      color: #94A3B8;
+    }
   }
 }
 
@@ -55,8 +62,15 @@
   position: relative;
   transition: background 0.2s;
 
-  svg { width: 16px; height: 16px; stroke: #64748B; }
-  &:hover { background: #F0F4F8; }
+  svg {
+    width: 16px;
+    height: 16px;
+    stroke: #64748B;
+  }
+
+  &:hover {
+    background: #F0F4F8;
+  }
 }
 
 .notif-dot {
@@ -80,7 +94,9 @@
   cursor: pointer;
   transition: background 0.2s;
 
-  &:hover { background: #F8FBFF; }
+  &:hover {
+    background: #F8FBFF;
+  }
 
   .user-avatar {
     width: 30px;
@@ -101,9 +117,56 @@
     flex-direction: column;
     gap: 1px;
 
-    .user-name { font-size: 0.82rem; font-weight: 600; color: #1E2A3A; line-height: 1; }
-    .user-role { font-size: 0.68rem; color: #94A3B8; }
+    .user-name {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #1E2A3A;
+      line-height: 1;
+    }
+
+    .user-role {
+      font-size: 0.68rem;
+      color: #94A3B8;
+    }
   }
 
-  svg { stroke: #94A3B8; }
+  svg {
+    stroke: #94A3B8;
+  }
+}
+
+// ===== RESPONSIVE =====
+@media (max-width: 1024px) {
+  .search-bar {
+    width: 200px;
+  }
+
+  .user-info {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .dash-navbar {
+    padding: 10px 16px;
+    gap: 10px;
+  }
+
+  .search-bar {
+    width: 160px;
+  }
+
+  .icon-btn:not(.notif-btn) {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-bar {
+    display: none;
+  }
+
+  .user-profile {
+    padding: 6px 8px;
+  }
 }

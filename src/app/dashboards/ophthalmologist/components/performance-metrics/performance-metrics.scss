@@ -59,11 +59,24 @@
     gap: 4px;
     flex-wrap: wrap;
 
-    .metric-unit { font-size: 0.7rem; font-weight: 400; color: #94A3B8; }
-    .metric-badge { font-size: 0.65rem; font-weight: 600; }
-    .metric-badge.green { color: #10B981; }
+    .metric-unit {
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: #94A3B8;
+    }
 
-    &.green { color: #10B981; }
+    .metric-badge {
+      font-size: 0.65rem;
+      font-weight: 600;
+    }
+
+    .metric-badge.green {
+      color: #10B981;
+    }
+
+    &.green {
+      color: #10B981;
+    }
   }
 
   .metric-lbl {
@@ -114,7 +127,9 @@
     color: #fff;
     border: none;
 
-    &:hover { background: #2563EB; }
+    &:hover {
+      background: #2563EB;
+    }
   }
 
   &--outline {
@@ -122,6 +137,35 @@
     color: #64748B;
     border: 1px solid #E2E8F0;
 
-    &:hover { background: #F8FBFF; }
+    &:hover {
+      background: #F8FBFF;
+    }
+  }
+}
+
+// ===== RESPONSIVE =====
+@media (max-width: 768px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .analytics-row {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-btns {
+    flex-direction: column;
+  }
+
+  .quick-btn {
+    width: 100%;
+    text-align: center;
   }
 }

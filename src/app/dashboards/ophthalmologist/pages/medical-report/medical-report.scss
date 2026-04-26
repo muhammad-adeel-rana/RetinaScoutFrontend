@@ -438,3 +438,51 @@ textarea {
         grid-template-columns: 1fr;
     }
 }
+
+// ===== ADDITIONAL RESPONSIVE BREAKPOINTS =====
+@media (max-width: 1024px) {
+    .dashboard-main {
+        margin-left: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-main {
+        margin-left: 0;
+    }
+
+    .page-content {
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .form-actions {
+        flex-wrap: wrap;
+        justify-content: stretch;
+
+        .btn-cancel,
+        .btn-save,
+        .btn-download {
+            flex: 1;
+            justify-content: center;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .vitals-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ai-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-two-col {
+        grid-template-columns: 1fr;
+    }
+}

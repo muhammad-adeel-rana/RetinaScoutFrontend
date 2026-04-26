@@ -1,26 +1,61 @@
+.section-title {
+  width: 819;
+  height: 52;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 40px;
+  line-height: 52px;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #3D3D3D;
+}
+
+.section-subtitle {
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #B0B0B0;
+}
+
 .features-section {
   padding-top: 100px;
   background-color: var(--bg-white);
 }
 
 .features-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
   gap: 30px;
+
+  // First card spans 4 columns (66% width)
+  .feature-card:nth-child(1) {
+    grid-column: span 7;
+  }
+
+  // Second card spans 2 columns (33% width)
+  .feature-card:nth-child(2) {
+    grid-column: span 5;
+  }
+
+  // Bottom row: 3 cards, each spanning 2 of 6 columns
+  .feature-card:nth-child(3),
+  .feature-card:nth-child(4),
+  .feature-card:nth-child(5) {
+    grid-column: span 4;
+  }
 }
 
 .feature-card {
   background-color: var(--bg-white);
   border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-md);
+  border-radius: 24px;
   padding: 40px 30px;
-  width: calc(33.333% - 20px);
-  min-width: 300px;
-  max-width: 350px;
   box-shadow: var(--shadow-sm);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
+
   &:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-md);
@@ -30,14 +65,15 @@
 .feature-icon {
   width: 50px;
   height: 50px;
-  background-color: #EBF5FF; /* Light blue bg */
+  background-color: #EBF5FF;
+  /* Light blue bg */
   color: var(--primary-blue);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  
+
   svg {
     width: 24px;
     height: 24px;
@@ -57,13 +93,46 @@
 }
 
 @media (max-width: 1024px) {
-  .feature-card {
-    width: calc(50% - 15px);
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    .feature-card:nth-child(1),
+    .feature-card:nth-child(2),
+    .feature-card:nth-child(3),
+    .feature-card:nth-child(4),
+    .feature-card:nth-child(5) {
+      grid-column: span 1;
+    }
   }
 }
 
 @media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+
+    .feature-card:nth-child(1),
+    .feature-card:nth-child(2),
+    .feature-card:nth-child(3),
+    .feature-card:nth-child(4),
+    .feature-card:nth-child(5) {
+      grid-column: span 1;
+    }
+  }
+}
+
+// ===== ADDITIONAL RESPONSIVE BREAKPOINTS =====
+@media (min-width: 1440px) {
+  .features-grid {
+    gap: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .features-section {
+    padding-top: 60px;
+  }
+
   .feature-card {
-    width: 100%;
+    padding: 28px 20px;
   }
 }

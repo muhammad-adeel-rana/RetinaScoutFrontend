@@ -16,7 +16,7 @@
 
     p {
       font-size: 0.95rem;
-      color: rgba(255,255,255,0.85);
+      color: rgba(255, 255, 255, 0.85);
       line-height: 1.75;
       margin-bottom: 32px;
     }
@@ -34,7 +34,32 @@
     transition: all 0.3s;
 
     &:hover {
-      background: rgba(255,255,255,0.9);
+      background: rgba(255, 255, 255, 0.9);
     }
+  }
+}
+
+// ===== ADDITIONAL RESPONSIVE BREAKPOINTS =====
+@media (max-width: 768px) {
+  .work-with-us {
+    padding: 60px 16px;
+  }
+
+  .work-with-us .work-inner h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .work-with-us {
+    padding: 48px 12px;
+  }
+
+  .work-with-us .work-inner h2 {
+    font-size: 1.4rem;
+  }
+
+  .work-with-us .work-inner p {
+    font-size: 0.875rem;
   }
 }

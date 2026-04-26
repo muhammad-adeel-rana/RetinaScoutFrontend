@@ -3,7 +3,7 @@
   border-radius: var(--border-radius-lg);
   padding: 60px 40px;
   border: 1px solid var(--border-color);
-  
+
   .section-title {
     margin-bottom: 40px;
   }
@@ -13,12 +13,12 @@
   display: flex;
   align-items: center;
   gap: 40px;
-  
+
   .img-wrapper {
     flex: 1;
     min-width: 300px;
     height: 350px;
-    
+
     .image-placeholder {
       width: 100%;
       height: 100%;
@@ -34,17 +34,17 @@
       bottom: 100px;
     }
   }
-  
+
   .text-wrapper {
     flex: 1;
     min-width: 300px;
-    
+
     p {
       margin-bottom: 20px;
       font-size: 1.05rem;
       line-height: 1.7;
     }
-    
+
     .btn {
       margin-top: 10px;
     }
@@ -54,10 +54,47 @@
 @media (max-width: 768px) {
   .about-content {
     flex-direction: column;
-    
+
     .img-wrapper {
       width: 100%;
       height: 250px;
+    }
+  }
+}
+
+// ===== ADDITIONAL RESPONSIVE BREAKPOINTS =====
+@media (min-width: 1440px) {
+  .about-card {
+    padding: 80px 60px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-content {
+    gap: 30px;
+
+    .img-wrapper {
+      min-width: 260px;
+    }
+
+    .text-wrapper {
+      min-width: 260px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .about-card {
+    padding: 40px 20px;
+  }
+
+  .about-content {
+    .img-wrapper {
+      height: 200px;
+    }
+
+    .text-wrapper p {
+      font-size: 0.95rem;
     }
   }
 }

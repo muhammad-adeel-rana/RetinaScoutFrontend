@@ -1,21 +1,43 @@
 .booking-section {
   position: relative;
-  margin-top: -60px; /* Pull it up over the hero section */
+  margin-top: -60px;
+  /* Pulls it up over the hero section */
   z-index: 20;
+
+  /* Only use this to horizontally center the card on the page */
+  display: flex;
+  justify-content: center;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .booking-card {
-  background-color: var(--bg-white);
-  border-radius: var(--border-radius-md);
+  width: 100%;
+  max-width: 1166px;
+  min-height: 280px;
+
+  border-radius: 28px;
+  border: 2px solid #3BBCFB;
+  background: radial-gradient(114.87% 113.36% at 40.95% -10.45%, #FFFFFF 32.81%, #F8FDFF 97.64%);
   box-shadow: var(--shadow-md);
   padding: 30px 40px;
-  border: 1px solid var(--border-color);
+
+  /* 🎯 THE MAGIC FIX: Centers your content vertically (column-wise) */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  /* Creates perfect spacing between the Title and the Form */
 }
 
 .booking-title {
-  color: var(--primary-blue);
-  font-size: 1.5rem;
-  margin-bottom: 24px;
+  color: #0069AB;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40px;
+  /* Added this so it matches your bold design */
+  margin: 0;
+  /* Removed margin-bottom because 'gap' in the card handles spacing now */
 }
 
 .booking-form {
@@ -23,6 +45,7 @@
   flex-wrap: wrap;
   gap: 20px;
   align-items: flex-end;
+  /* Keeps the submit button perfectly aligned with the bottom of the inputs */
 }
 
 .form-group {
@@ -31,7 +54,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  
+
   label {
     display: flex;
     align-items: center;
@@ -39,25 +62,26 @@
     font-size: 0.875rem;
     color: var(--text-dark);
     font-weight: 500;
-    
+
     .input-icon {
       color: var(--primary-blue);
     }
   }
-  
+
   input {
     border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-sm);
-    padding: 12px 16px;
+    border-radius: 12px;
+    height: 60px;
+    padding: 18px 16px;
     font-family: inherit;
     font-size: 0.875rem;
     outline: none;
     transition: border-color 0.3s;
-    
+
     &::placeholder {
       color: #94A3B8;
     }
-    
+
     &:focus {
       border-color: var(--primary-blue);
     }
@@ -66,10 +90,58 @@
 
 .form-submit {
   flex: 0 0 auto;
-  
+
   .submit-btn {
-    width: 100%;
+    width: 195px;
+    height: 60px;
     gap: 8px;
-    padding: 12px 30px;
+    padding: 18px 20px;
+    border-radius: 12px;
+    background-color: #00A4F4;
+  }
+}
+
+// ===== RESPONSIVE =====
+@media (max-width: 768px) {
+  .booking-card {
+    padding: 24px 20px;
+    /* On mobile, allow the card to grow taller naturally based on stacked inputs */
+    min-height: auto;
+  }
+
+  .booking-form {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+    /* Makes inputs stretch full width on mobile */
+  }
+
+  .form-group {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .form-submit {
+    width: 100%;
+    margin-top: 8px;
+
+    .submit-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-section {
+    margin-top: -30px;
+  }
+
+  .booking-card {
+    padding: 24px 16px;
+  }
+
+  .booking-title {
+    font-size: 1.2rem;
   }
 }

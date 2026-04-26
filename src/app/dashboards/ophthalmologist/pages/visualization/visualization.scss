@@ -337,3 +337,54 @@
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+// ===== ADDITIONAL RESPONSIVE BREAKPOINTS =====
+@media (max-width: 1024px) {
+    .dashboard-main {
+        margin-left: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-main {
+        margin-left: 0;
+    }
+
+    .page-content {
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .patient-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .report-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .detection-row {
+        grid-template-columns: 28px 1fr 1fr 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .vitals-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .viewer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detection-row {
+        grid-template-columns: 28px 1fr 50px;
+    }
+
+    .detection-bar-wrap {
+        display: none;
+    }
+}

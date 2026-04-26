@@ -25,12 +25,12 @@
   padding: 0 16px;
   background-color: var(--bg-white);
   min-width: 250px;
-  
+
   .input-icon {
     color: var(--primary-blue);
     margin-right: 12px;
   }
-  
+
   input {
     border: none;
     outline: none;
@@ -38,12 +38,12 @@
     font-size: 0.9375rem;
     font-family: inherit;
     width: 100%;
-    
+
     &::placeholder {
       color: #94A3B8;
     }
   }
-  
+
   &:focus-within {
     border-color: var(--primary-blue);
   }
@@ -57,10 +57,33 @@
 @media (max-width: 768px) {
   .contact-form {
     flex-direction: column;
-    
-    .form-group-inline, .submit-btn {
+
+    .form-group-inline,
+    .submit-btn {
       width: 100%;
       max-width: 400px;
+    }
+  }
+}
+
+// ===== ADDITIONAL RESPONSIVE BREAKPOINTS =====
+@media (max-width: 480px) {
+  .contact-banner-section {
+    padding-bottom: 60px;
+  }
+
+  .contact-form {
+    gap: 12px;
+
+    .form-group-inline {
+      min-width: unset;
+      width: 100%;
+    }
+
+    .submit-btn {
+      width: 100%;
+      max-width: 100%;
+      justify-content: center;
     }
   }
 }
