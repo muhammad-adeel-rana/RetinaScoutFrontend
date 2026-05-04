@@ -7,18 +7,18 @@
     radial-gradient(114.87% 113.36% at 40.95% -10.45%, #FFFFFF 32.81%, #F8FDFF 97.64%) padding-box,
     /* 2. Your exact Figma gradient for the border */
 
-    linear-gradient(96.34deg, #C5ECFF 0.94%, #95DDFF 96.46%) border-box;
+    linear-gradient(96.34deg, #0095DE 0.94%, #0095DE 96.46%) border-box;
   /* ---------------------------------- */
 
   .section-title {
     top: 56px;
     font-weight: 700;
     font-style: Bold;
-    font-size: 32px;
+    font-size: 40px;
     line-height: 40px;
     letter-spacing: 0%;
     text-align: center;
-    color: #000000;
+    color: #3d3d3d;
 
   }
 }
@@ -70,24 +70,22 @@
     }
 
     .btn {
-      width: 334px;
-      height: 60px;
-      border-radius: 12px;
-
-      /* Cleaned up padding into a shorthand: top/bottom 18px, left/right 36px */
-      padding: 18px 36px;
-      gap: 8px;
-      background: #00A4F4;
-
-      /* Center the text inside the button */
-      display: flex;
+      display: inline-flex;
+      padding: 1.125rem 2.25rem;
       align-items: center;
-      justify-content: center;
+      gap: 0.5rem;
 
-      /* Assuming your text is white based on the image */
-      color: #FFFFFF;
-      text-decoration: none;
-      border: none;
+      border-radius: 0.75rem;
+      background: #0095DE;
+      box-shadow: -8px 8px 28px 0 rgba(0, 0, 0, 0.06);
+
+      color: #FFF;
+      font-size: 1.25rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 1.5rem;
+      /* 120% */
+
       cursor: pointer;
     }
   }

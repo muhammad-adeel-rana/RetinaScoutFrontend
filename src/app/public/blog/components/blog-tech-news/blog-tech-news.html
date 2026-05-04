@@ -1,43 +1,53 @@
 <section class="tech-news section-padding">
   <div class="container">
+    @if (loading()) {
+    <div class="news-loading">Loading technology news...</div>
+    } @else if (error()) {
+    <div class="news-error">Could not load news. Make sure the backend is running.</div>
+    } @else {
     <div class="tech-columns">
-
-      <!-- Column 1 -->
       <div class="tech-col">
         <div class="section-header">
           <h2 class="section-label">TECHNOLOGY NEWS</h2>
           <a href="#" class="show-all">Show All →</a>
         </div>
-        @for (article of col1; track article.title) {
-          <div class="tech-card">
-            <div class="tech-img-ph"></div>
-            <div class="tech-content">
-              <span class="tech-category">{{ article.category }}</span>
-              <h4 class="tech-title">{{ article.title }}</h4>
-              <span class="tech-date">{{ article.date }}</span>
-            </div>
+        @for (article of col1(); track article.url) {
+        <a [href]="article.url" target="_blank" rel="noopener" class="tech-card">
+          @if (article.urlToImage) {
+          <img [src]="article.urlToImage" [alt]="article.title" class="tech-img" />
+          } @else {
+          <div class="tech-img-ph"></div>
+          }
+          <div class="tech-content">
+            <span class="tech-category">{{ article.source.name }}</span>
+            <h4 class="tech-title">{{ article.title }}</h4>
+            <span class="tech-date">{{ formatDate(article.publishedAt) }}</span>
           </div>
+        </a>
         }
       </div>
 
-      <!-- Column 2 -->
       <div class="tech-col">
         <div class="section-header">
-          <h2 class="section-label">TECHNOLOGY NEWS</h2>
+          <h2 class="section-label">MEDICAL FIELD</h2>
           <a href="#" class="show-all">Show All →</a>
         </div>
-        @for (article of col2; track article.title) {
-          <div class="tech-card">
-            <div class="tech-img-ph"></div>
-            <div class="tech-content">
-              <span class="tech-category">{{ article.category }}</span>
-              <h4 class="tech-title">{{ article.title }}</h4>
-              <span class="tech-date">{{ article.date }}</span>
-            </div>
+        @for (article of col2(); track article.url) {
+        <a [href]="article.url" target="_blank" rel="noopener" class="tech-card">
+          @if (article.urlToImage) {
+          <img [src]="article.urlToImage" [alt]="article.title" class="tech-img" />
+          } @else {
+          <div class="tech-img-ph"></div>
+          }
+          <div class="tech-content">
+            <span class="tech-category">{{ article.source.name }}</span>
+            <h4 class="tech-title">{{ article.title }}</h4>
+            <span class="tech-date">{{ formatDate(article.publishedAt) }}</span>
           </div>
+        </a>
         }
       </div>
-
     </div>
+    }
   </div>
 </section>

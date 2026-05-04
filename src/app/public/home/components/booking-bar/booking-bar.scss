@@ -17,7 +17,7 @@
   min-height: 280px;
 
   border-radius: 28px;
-  border: 2px solid #3BBCFB;
+  border: 2px solid #0095DE;
   background: radial-gradient(114.87% 113.36% at 40.95% -10.45%, #FFFFFF 32.81%, #F8FDFF 97.64%);
   box-shadow: var(--shadow-md);
   padding: 30px 40px;
@@ -31,7 +31,7 @@
 }
 
 .booking-title {
-  color: #0069AB;
+  color: #0095DE;
   font-size: 32px;
   font-weight: 700;
   line-height: 40px;
@@ -64,7 +64,7 @@
     font-weight: 500;
 
     .input-icon {
-      color: var(--primary-blue);
+      color: #0095DE;
     }
   }
 
@@ -83,7 +83,7 @@
     }
 
     &:focus {
-      border-color: var(--primary-blue);
+      border-color: #0095DE;
     }
   }
 }
@@ -97,7 +97,7 @@
     gap: 8px;
     padding: 18px 20px;
     border-radius: 12px;
-    background-color: #00A4F4;
+    background-color: #0095DE;
   }
 }
 

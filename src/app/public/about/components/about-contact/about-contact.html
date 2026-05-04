@@ -1,44 +1,84 @@
 <section class="contact-section section-padding">
-  <div class="container contact-grid">
+  <div class="container">
+    <div class="contact-outer-card">
 
-    <!-- Left: Form -->
-    <div class="contact-form-wrap">
-      <span class="label-tag">CONTACT US</span>
-      <h2 class="section-heading">Let Your Wanderlust Guide You</h2>
+      <!-- Left: heading + form -->
+      <div class="contact-left">
+        <div class="contact-label">
+          <span>CONTACT INFORMATION</span>
+          <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_12_331)">
+              <path d="M4.9248 10.3748L6.49525 9.68052L5.62485 9.07031L4.9248 10.3748Z" fill="#00A4F4" />
+              <path d="M4.9248 10.3743L4.99976 8L13.9078 0L5.66407 9.1113L4.9248 10.3743Z" fill="#00A4F4" />
+              <path d="M5 8L13.908 0L0 6.22704L5 8Z" fill="#00A4F4" />
+              <path d="M5.66406 9.1113L9.95686 12L13.9078 0L5.66406 9.1113Z" fill="#0F172A" />
+            </g>
+            <defs>
+              <clipPath id="clip0_12_331">
+                <rect width="13.908" height="12" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+        <h2 class="contact-heading">Let Your Wanderlust Guide You</h2>
 
-      <form class="contact-form">
-        <div class="form-row">
-          <div class="form-group">
-            <label>First Name</label>
-            <input type="text" placeholder="First Name" />
-          </div>
-          <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" placeholder="Last Name" />
-          </div>
+        <div class="contact-form-card">
+          <form class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Your Email</label>
+                <div class="input-wrap">
+                  <input type="email" placeholder="Your Email" />
+                  <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M23.1117 4.49449C23.4296 2.94472 21.9074 1.65683 20.4317 2.227L2.3425 9.21601C0.694517 9.85273 0.621087 12.1572 2.22518 12.8975L6.1645 14.7157L8.03849 21.2746C8.13583 21.6153 8.40618 21.8791 8.74917 21.968C9.09216 22.0568 9.45658 21.9576 9.70712 21.707L12.5938 18.8203L16.6375 21.8531C17.8113 22.7334 19.5019 22.0922 19.7967 20.6549L23.1117 4.49449ZM3.0633 11.0816L21.1525 4.0926L17.8375 20.2531L13.1 16.6999C12.7019 16.4013 12.1448 16.4409 11.7929 16.7928L10.5565 18.0292L10.928 15.9861L18.2071 8.70703C18.5614 8.35278 18.5988 7.79106 18.2947 7.39293C17.9906 6.99479 17.4389 6.88312 17.0039 7.13168L6.95124 12.876L3.0633 11.0816ZM8.17695 14.4791L8.78333 16.6015L9.01614 15.321C9.05253 15.1209 9.14908 14.9366 9.29291 14.7928L11.5128 12.573L8.17695 14.4791Z"
+                      fill="#0F0F0F" />
+                  </svg>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Your Phone</label>
+                <div class="input-wrap">
+                  <input type="tel" placeholder="Your Phone" />
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                    <path
+                      d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Your Address</label>
+              <div class="input-wrap">
+                <input type="text" placeholder="Your Address" />
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Message</label>
+              <div class="input-wrap textarea-wrap">
+                <textarea placeholder="Write Message.." rows="4"></textarea>
+                <svg class="txtarea" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                  <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
+                </svg>
+              </div>
+            </div>
+
+            <button type="submit" class="send-btn">Send Message</button>
+          </form>
         </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Your Email</label>
-            <input type="email" placeholder="Your Email" />
-          </div>
-          <div class="form-group">
-            <label>Phone</label>
-            <input type="tel" placeholder="+1 (555) 000-0000" />
-          </div>
-        </div>
-        <div class="form-group full">
-          <label>Message</label>
-          <textarea placeholder="Write your message..." rows="4"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
-      </form>
+      </div>
+
+      <!-- Right: image -->
+      <div class="contact-right">
+        <img src="Doctor-Meeting.png" alt="Medical team consultation" />
+      </div>
+
     </div>
-
-    <!-- Right: Image -->
-    <div class="contact-image">
-      <img src="Doctor-Meeting.png" alt="Medical consultation" class="contact-img" />
-    </div>
-
   </div>
 </section>

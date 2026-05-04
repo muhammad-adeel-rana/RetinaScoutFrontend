@@ -1,16 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { NewsService, NewsArticle } from '../../../../core/services/news.service';
 
 @Component({
   selector: 'app-blog-latest-news',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './blog-latest-news.html',
   styleUrl: './blog-latest-news.scss',
 })
-export class BlogLatestNews {
-  articles = [
-    { category: 'DIAGNOSTICS', title: 'AI Detects Diabetic Retinopathy in Rural Medical Clinics', date: 'April 5, 2026', author: 'Dr. Sarah Nair' },
-    { category: 'RESEARCH', title: 'New Study Links Early Retinal Screening to Better Patient Outcomes', date: 'April 4, 2026', author: 'James Mitchell' },
-    { category: 'TECHNOLOGY', title: 'AI-Powered Retinal Cameras Reduce Diagnostic Time by 60%', date: 'April 3, 2026', author: 'Lucas Fernandez' },
-    { category: 'CLINICAL', title: 'Screening Programs Expand Access to Retinal Care Globally', date: 'April 2, 2026', author: 'Priya Okafor' },
-  ];
+export class BlogLatestNews implements OnInit {
+  articles = signal<NewsArticle[]>([]);
+  loading = signal(true);
+  error = signal(false);
+
+  constructor(private newsService: NewsService) { }
+
+  ngOnInit() {
+    this.newsService.getLatestNews().subscribe({
+      next: (res) => {
+        this.articles.set(res.articles.slice(0, 4));
+        this.loading.set(false);
+      },
+      error: () => {
+        this.error.set(true);
+        this.loading.set(false);
+      }
+    });
+  }
+
+  formatDate(dateStr: string): string {
+    return new Date(dateStr).toLocaleDateString('en-US', {
+      year: 'numeric', month: 'long', day: 'numeric'
+    });
+  }
 }

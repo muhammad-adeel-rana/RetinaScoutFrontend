@@ -1,38 +1,72 @@
 <section class="faq-section section-padding">
   <div class="container">
+
+    <!-- Header -->
     <h2 class="faq-title">Frequently Asked Questions</h2>
     <p class="faq-subtitle">
-      All you need to know about the product and billing. Can't find the answer you're looking for?
-      Please <a href="#">chat with our team</a>.
+      RetinaScout is designed to make diabetic retinopathy screening accessible and
+      efficient for healthcare providers at all levels.
     </p>
 
-    <!-- Search -->
+    <!-- Search bar -->
     <div class="faq-search">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
       </svg>
-      <input type="text" placeholder="Search" />
+      <input type="text" placeholder="Search" [(ngModel)]="searchQuery" name="search" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"
+        class="mic-icon">
+        <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" />
+        <path d="M19 10v2a7 7 0 01-14 0v-2" />
+        <line x1="12" y1="19" x2="12" y2="23" />
+        <line x1="8" y1="23" x2="16" y2="23" />
+      </svg>
     </div>
 
     <!-- FAQ list -->
     <div class="faq-list">
-      @for (faq of faqs; track faq.q; let i = $index) {
-        <div class="faq-item" [class.faq-item--open]="faq.open" (click)="toggleFaq(i)">
-          <div class="faq-question">
-            <span>{{ faq.q }}</span>
-            <div class="faq-icon" [class.faq-icon--open]="faq.open">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="6 9 12 15 18 9"/>
-              </svg>
-            </div>
+      @for (faq of pagedFaqs; track faq.q; let i = $index) {
+      <div class="faq-item" [class.faq-item--open]="faq.open" (click)="toggleFaq(i)">
+        <div class="faq-question">
+          <span>{{ faq.q }}</span>
+          <div class="faq-icon" [class.faq-icon--open]="faq.open">
+            @if (faq.open) {
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14">
+              <polyline points="18 15 12 9 6 15" />
+            </svg>
+            } @else {
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+            }
           </div>
-          @if (faq.open) {
-            <div class="faq-answer">
-              <p>{{ faq.a }}</p>
-            </div>
-          }
         </div>
+        @if (faq.open) {
+        <div class="faq-answer">
+          <p>{{ faq.a }}</p>
+        </div>
+        }
+      </div>
       }
     </div>
+
+    <!-- Pagination -->
+    @if (totalPages > 1) {
+    <div class="faq-pagination">
+      <button class="page-btn" (click)="prevPage()" [disabled]="currentPage() === 1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+      <span class="page-info">{{ currentPage() }} / {{ totalPages }}</span>
+      <button class="page-btn" (click)="nextPage()" [disabled]="currentPage() === totalPages">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </button>
+    </div>
+    }
+
   </div>
 </section>

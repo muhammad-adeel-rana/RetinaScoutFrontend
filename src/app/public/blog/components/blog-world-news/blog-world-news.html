@@ -5,35 +5,48 @@
       <a href="#" class="show-all">Show All →</a>
     </div>
 
+    @if (loading()) {
+    <div class="news-loading">Loading world news...</div>
+    } @else if (error()) {
+    <div class="news-error">Could not load news. Make sure the backend is running.</div>
+    } @else {
     <div class="world-grid">
-      <!-- Large featured left -->
-      <div class="world-featured">
+      @if (featuredArticle()) {
+      <a [href]="featuredArticle()!.url" target="_blank" rel="noopener" class="world-featured">
+        @if (featuredArticle()!.urlToImage) {
+        <img [src]="featuredArticle()!.urlToImage!" [alt]="featuredArticle()!.title" class="world-img-large" />
+        } @else {
         <div class="world-img-ph world-img-ph--large"></div>
+        }
         <div class="world-content">
-          <span class="world-category">GLOBAL HEALTH</span>
-          <h3 class="world-title">Understanding the fundamental role of diabetic retinopathy screening in developing nations</h3>
-          <p class="world-desc">Researchers and clinicians are working together to bring AI-powered retinal screening to underserved communities worldwide.</p>
+          <span class="world-category">{{ featuredArticle()!.source.name }}</span>
+          <h3 class="world-title">{{ featuredArticle()!.title }}</h3>
+          <p class="world-desc">{{ featuredArticle()!.description }}</p>
           <div class="world-meta">
-            <div class="author-avatar"></div>
-            <span class="world-author">Dr. Benjamin Yusuf</span>
-            <span class="world-date">April 2, 2026</span>
+            <span class="world-author">{{ featuredArticle()!.author || featuredArticle()!.source.name }}</span>
+            <span class="world-date">{{ formatDate(featuredArticle()!.publishedAt) }}</span>
           </div>
         </div>
-      </div>
+      </a>
+      }
 
-      <!-- Right: 3 smaller cards -->
       <div class="world-small-list">
-        @for (article of smallArticles; track article.title) {
-          <div class="world-small-card">
-            <div class="world-img-ph world-img-ph--small"></div>
-            <div class="world-small-content">
-              <span class="world-category">{{ article.category }}</span>
-              <h4 class="world-small-title">{{ article.title }}</h4>
-              <span class="world-date">{{ article.date }}</span>
-            </div>
+        @for (article of smallArticles(); track article.url) {
+        <a [href]="article.url" target="_blank" rel="noopener" class="world-small-card">
+          @if (article.urlToImage) {
+          <img [src]="article.urlToImage" [alt]="article.title" class="world-img-small" />
+          } @else {
+          <div class="world-img-ph world-img-ph--small"></div>
+          }
+          <div class="world-small-content">
+            <span class="world-category">{{ article.source.name }}</span>
+            <h4 class="world-small-title">{{ article.title }}</h4>
+            <span class="world-date">{{ formatDate(article.publishedAt) }}</span>
           </div>
+        </a>
         }
       </div>
     </div>
+    }
   </div>
 </section>

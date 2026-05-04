@@ -1,3 +1,25 @@
+.section-title {
+  font-weight: 700;
+  /* Removed invalid 'font-style: Bold;' */
+  font-size: 40px;
+  line-height: 52px;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #3d3d3d;
+
+  /* Pushes the subtitle down a bit */
+  margin-bottom: 16px;
+}
+
+.section-subtitle {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #B0B0B0;
+}
+
 .faq-section {
   background-color: var(--bg-white);
 }
@@ -23,10 +45,17 @@
   border-radius: var(--border-radius-md);
   padding: 24px;
   box-shadow: var(--shadow-sm);
+  cursor: pointer;
+
+  width: 558px;
+  min-height: 100px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   &.active {
     border-top: 4px solid #10B981;
-    /* Green accent on top */
     box-shadow: var(--shadow-md);
   }
 }
@@ -38,16 +67,17 @@
   cursor: pointer;
 
   .faq-icon {
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: var(--text-dark);
+    font-size: 18px;
+    font-weight: 600;
+    color: #3d3d3d;
     width: 24px;
     text-align: center;
   }
 
   .faq-question {
-    font-size: 1.05rem;
-    color: var(--text-dark);
+    font-size: 18px;
+    font-weight: 600px;
+    color: #3d3d3d;
     margin: 0;
   }
 }
@@ -57,29 +87,31 @@
   padding-left: 40px;
 
   p {
-    font-size: 0.9375rem;
-    color: var(--text-gray);
-    line-height: 1.6;
+    font-size: 14px;
+    color: #6d6d6d;
+    line-height: 151%;
     margin: 0;
   }
 }
 
 .faq-cta-box {
-  background-color: #F8FBFF;
+  background-color: #F4F2F2;
   border-radius: var(--border-radius-md);
+  border-radius: 10px;
   padding: 30px;
-  margin-top: 10px;
+  height: 220px;
+  width: 558px;
+
 
   .cta-header {
     display: flex;
     gap: 16px;
-    align-items: flex-start;
-    margin-bottom: 20px;
+    margin: 28px 0px;
 
     .cta-icon {
-      width: 32px;
-      height: 32px;
-      background-color: var(--text-dark);
+      width: 33px;
+      height: 33px;
+      background-color: #000000;
       color: white;
       border-radius: 50%;
       display: flex;
@@ -87,20 +119,33 @@
       justify-content: center;
       font-weight: bold;
       flex-shrink: 0;
+
+      margin-right: 10px;
     }
 
     .cta-text {
       h4 {
-        font-size: 1.1rem;
+        font-size: 18px;
+        font-weight: 600;
         margin-bottom: 4px;
+        color: #3d3d3d;
       }
 
       p {
-        font-size: 0.875rem;
-        color: var(--text-gray);
+        font-size: 14px;
+        font-weight: 600;
+        color: #6d6d6d;
         margin: 0;
       }
     }
+  }
+
+  .btn-primary {
+    width: 218.02000427246094px;
+    height: 61.599998474121094px;
+    border-radius: 10px;
+    margin-left: 53px;
+    background-color: #0095DE;
   }
 }
 

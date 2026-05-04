@@ -1,112 +1,133 @@
-// ===== SECTION 2: WHY CHOOSE =====
 .why-choose {
   background: var(--bg-white);
-
-  .why-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-  }
 }
 
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+// ── Left: stacked images ──
 .why-images {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 
   .retinal-img {
-    border-radius: var(--border-radius-md);
+    border-radius: 2.1875rem;
+    background-color: #fff;
     overflow: hidden;
-    box-shadow: var(--shadow-sm);
+
 
     img {
-      width: 100%;
+      width: 33rem;
+      height: 100%;
       display: block;
       object-fit: cover;
     }
-
-    &--1 img {
-      height: 160px;
-    }
-
-    &--2 img {
-      height: 160px;
-    }
-
-    &--3 img {
-      height: 160px;
-    }
   }
 }
 
+// ── Right: content ──
 .why-content {
-  .why-intro {
-    font-size: 0.95rem;
-    color: var(--text-gray);
-    margin-bottom: 28px;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
 
-  .why-feature {
+.section-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1E2A3A;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.why-intro {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #3d3d3d;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+// ── Feature item ──
+.why-feature {
+  margin-bottom: 1.5rem;
+
+  .why-feature-header {
     display: flex;
-    gap: 16px;
-    margin-bottom: 24px;
+    align-items: center;
+    gap: 12px;
+  }
 
-    .why-icon {
-      width: 44px;
-      height: 44px;
-      background: rgba(0, 162, 255, 0.1);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+  .why-icon {
+    width: 32px;
+    height: 32px;
+    background: #3d3d3d;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-bottom: 0.5rem;
 
-      svg {
-        width: 22px;
-        height: 22px;
-        stroke: var(--primary-blue);
-      }
-    }
-
-    h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-      color: var(--text-dark);
-    }
-
-    p {
-      font-size: 0.88rem;
-      line-height: 1.65;
-      margin: 0;
+    svg {
+      fill: #fff;
     }
   }
 
-  .btn {
-    margin-top: 8px;
+  h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #3d3d3d;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: #6d6d6d;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    align-self: stretch;
+    /* 1.5rem */
   }
 }
 
-// ===== RESPONSIVE =====
+.cta-btn {
+  width: 10.125rem;
+  height: 3rem;
+  margin-top: 0.5rem;
+  display: flex;
+  padding: 0.75rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 0.5rem;
+  background: #3d3d3d;
+}
+
+// ── Responsive ──
 @media (max-width: 1024px) {
-  .why-choose .why-grid {
+  .why-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
 }
 
-// ===== ADDITIONAL RESPONSIVE BREAKPOINTS =====
 @media (max-width: 480px) {
-
-  .why-images .retinal-img--1 img,
-  .why-images .retinal-img--2 img,
-  .why-images .retinal-img--3 img {
-    height: 120px;
+  .section-heading {
+    font-size: 1.8rem;
   }
 
-  .why-content .why-feature {
-    flex-direction: column;
-    gap: 10px;
+  .why-images .retinal-img img {
+    height: 140px;
+  }
+
+  .why-feature p {
+    padding-left: 0;
   }
 }

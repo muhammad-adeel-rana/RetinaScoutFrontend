@@ -27,10 +27,9 @@
   }
 
   .logo-text {
-    font-family: 'Montserrat', sans-serif;
     font-size: 28px;
     font-weight: 600;
-    // font-style: bold; 
+    font-style: bold;
     color: #0069AB;
     letter-spacing: -0.3px;
     line-height: 1;
@@ -53,7 +52,7 @@
     position: relative;
 
     &.active {
-      color: #0069AB;
+      color: #0095DE;
     }
 
     &:hover {
@@ -65,7 +64,7 @@
 // Desktop CTA — visible on desktop, hidden on mobile
 .nav-cta-desktop {
   flex-shrink: 0;
-  background: linear-gradient(0deg, #0095DE, #0095DE);
+  background: #0095DE;
 }
 
 // Mobile CTA inside nav — hidden on desktop

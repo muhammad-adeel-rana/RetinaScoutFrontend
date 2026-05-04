@@ -5,16 +5,16 @@
   line-height: 52px;
   letter-spacing: 0%;
   text-align: center;
+  color: #3d3d3d;
 }
 
 .section-subtitle {
-  width: 766px;
-  height: 48px;
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0%;
   text-align: center;
+  color: #B0B0B0;
 }
 
 .workflow-section {
@@ -50,7 +50,7 @@
     z-index: 1;
 
     /* 🎯 THE FIX: Custom 8px dash and 8px gap using a gradient */
-    background-image: linear-gradient(to bottom, #B6E6FF, 50%, transparent 50%);
+    background-image: linear-gradient(to bottom, #0095DE, 50%, transparent 50%);
     background-size: 2px 16px;
     /* 2px width, 16px total height (8px color + 8px transparent) */
     background-repeat: repeat-y;
@@ -154,7 +154,7 @@
   font-size: 16px;
   line-height: 20px;
   letter-spacing: 0%;
-  color: #0069AB;
+  color: #0095DE;
 
   display: flex;
   align-items: center;
@@ -170,7 +170,7 @@
 
 
   .star-icon {
-    color: #0069AB;
+    color: #0095DE;
     font-size: 1.2rem;
   }
 }

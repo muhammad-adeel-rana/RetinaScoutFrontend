@@ -66,7 +66,7 @@
     /* 1. The solid inner background of the card */
     linear-gradient(var(--bg-white), var(--bg-white)) padding-box,
     /* 2. Your exact Figma gradient for the border */
-    linear-gradient(96.34deg, #C5ECFF 0.94%, #95DDFF 96.46%) border-box;
+    linear-gradient(96.34deg, #0095DE 0.94%, #0095DE 96.46%) border-box;
   /* ---------------------------------- */
 
   padding: 40px 30px;
@@ -86,7 +86,7 @@
   height: 50px;
   background-color: #EBF5FF;
   /* Light blue bg */
-  color: var(--primary-blue);
+  color: #0095DE;
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -105,7 +105,7 @@
   font-size: 20px;
   line-height: 20px;
   letter-spacing: 0%;
-  color: #0069AB;
+  color: #0095DE;
 
 
 }

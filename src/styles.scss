@@ -2,10 +2,10 @@
 
 :root {
   /* Colors */
-  --primary-blue: #00A2FF;
+  --primary-blue: #0095DE;
   --primary-blue-hover: #008be5;
   --text-dark: #2A3B4C;
-  --text-gray: #6B7C93;
+  --text-gray: #B0B0B0;
   --bg-light: #F8FBFF;
   --bg-white: #FFFFFF;
   --border-color: #E2E8F0;
@@ -153,8 +153,9 @@ a:hover {
 
 .section-subtitle {
   font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-  color: var(--text-gray);
-  max-width: 600px;
+  font-weight: 600;
+  color: #B0B0B0;
+  max-width: 766px;
   margin: 0 auto 3rem;
 }
 

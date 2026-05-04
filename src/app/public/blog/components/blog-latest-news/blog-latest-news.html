@@ -5,20 +5,30 @@
       <a href="#" class="show-all">Show All →</a>
     </div>
 
+    @if (loading()) {
+    <div class="news-loading">Loading latest news...</div>
+    } @else if (error()) {
+    <div class="news-error">Could not load news. Make sure the backend is running.</div>
+    } @else {
     <div class="news-grid">
-      @for (article of articles; track article.title) {
-        <div class="news-card">
-          <div class="news-img-ph"></div>
-          <div class="news-content">
-            <span class="news-category">{{ article.category }}</span>
-            <h3 class="news-title">{{ article.title }}</h3>
-            <div class="news-meta">
-              <span class="news-author">{{ article.author }}</span>
-              <span class="news-date">{{ article.date }}</span>
-            </div>
+      @for (article of articles(); track article.url) {
+      <a [href]="article.url" target="_blank" rel="noopener" class="news-card">
+        @if (article.urlToImage) {
+        <img [src]="article.urlToImage" [alt]="article.title" class="news-img" />
+        } @else {
+        <div class="news-img-ph"></div>
+        }
+        <div class="news-content">
+          <span class="news-category">{{ article.source.name }}</span>
+          <h3 class="news-title">{{ article.title }}</h3>
+          <div class="news-meta">
+            <span class="news-author">{{ article.author || article.source.name }}</span>
+            <span class="news-date">{{ formatDate(article.publishedAt) }}</span>
           </div>
         </div>
+      </a>
       }
     </div>
+    }
   </div>
 </section>

@@ -1,3 +1,16 @@
+.section-title {
+  font-weight: 700;
+  /* Removed invalid 'font-style: Bold;' */
+  font-size: 40px;
+  line-height: 52px;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #3d3d3d;
+
+  /* Pushes the subtitle down a bit */
+  margin-bottom: 16px;
+}
+
 .testimonials-section {
   background-color: var(--bg-white);
 }
@@ -18,14 +31,18 @@
 
 .testimonial-card {
   flex: 1;
-  background-color: var(--bg-white);
-  border: 1px solid var(--primary-blue);
+  height: 152px;
+  width: 511px;
+  border: 1px solid transparent;
   border-radius: var(--border-radius-md);
   padding: 30px;
   display: flex;
   gap: 20px;
   box-shadow: 0 4px 10px rgba(0, 162, 255, 0.05);
   transition: transform 0.3s;
+
+  background: radial-gradient(192.09% 498.22% at 0% 12.07%, #EBF8FF 2.36%, #FDFEFF 49.86%) padding-box,
+    linear-gradient(0deg, #0095de, #0095de) border-box;
 
   &:hover {
     transform: translateY(-5px);
@@ -34,28 +51,32 @@
 
 .author-avatar {
   flex-shrink: 0;
-  width: 60px;
-  height: 60px;
+  width: 76px;
+  height: 76px;
   border-radius: 8px;
   background-color: #E2E8F0;
   border: 1px solid #CBD5E1;
+  align-self: center;
 }
 
 .testimonial-content {
   p {
-    font-size: 0.9375rem;
-    color: var(--text-gray);
-    line-height: 1.6;
-    margin-bottom: 16px;
+    font-weight: 500;
+    font-size: 13px;
+    color: #6d6d6d;
+    line-height: 24px;
     font-style: italic;
+    margin-bottom: 0px;
   }
 }
 
 .author-info {
   .author-role {
-    font-weight: 600;
-    color: var(--text-dark);
-    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #6d6d6d;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0px;
   }
 }
 
@@ -70,16 +91,18 @@
   text-align: center;
 
   .stat-number {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--primary-blue);
+    font-size: 48px;
+    font-weight: 800;
+    color: #0095de;
+    line-height: 52px;
     margin-bottom: 8px;
   }
 
   .stat-label {
-    font-size: 0.875rem;
-    color: var(--text-gray);
-    font-weight: 500;
+    font-size: 14px;
+    color: #6d6d6d;
+    font-weight: 600;
+    line-height: 24px;
   }
 }
 

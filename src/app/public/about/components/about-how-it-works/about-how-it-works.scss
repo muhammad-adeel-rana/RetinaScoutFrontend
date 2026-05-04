@@ -1,90 +1,139 @@
-// ===== SECTION 3: HOW IT WORKS =====
 .how-it-works {
-  background: var(--bg-light);
+  background: #fff;
+}
 
-  .section-heading {
-    margin-bottom: 48px;
+.hiw-heading {
+  color: #3d3d3d;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 4.38rem;
+}
+
+// ── Icons row ──
+.hiw-icons-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3.12rem;
+}
+
+.hiw-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px 4.2rem;
+}
+
+.hiw-icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.hiw-icon {
+  width: 72px;
+  height: 72px;
+  background: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.25rem;
+  background: #00A4F4;
+  box-shadow: 0 100px 80px 0 rgba(150, 114, 255, 0.07), 0 64.815px 46.852px 0 rgba(150, 114, 255, 0.05), 0 38.519px 25.481px 0 rgba(150, 114, 255, 0.04), 0 20px 13px 0 rgba(150, 114, 255, 0.04), 0 8.148px 6.519px 0 rgba(150, 114, 255, 0.03), 0 1.852px 3.148px 0 rgba(150, 114, 255, 0.02);
+
+  svg {
+    stroke: #FFF;
+    width: 1.5625rem;
+    height: 1.5625rem;
   }
+}
 
-  .steps-row {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 0;
-  }
+// ── Dashed connector ──
+.hiw-connector {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 16px;
 
-  .step {
-    flex: 1;
-    max-width: 280px;
-    text-align: center;
-    padding: 0 16px;
-
-    .step-icon {
-      width: 64px;
-      height: 64px;
-      background: var(--primary-blue);
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-
-      svg {
-        width: 30px;
-        height: 30px;
-        stroke: #fff;
-      }
-    }
-
-    h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: var(--text-dark);
-    }
-
-    p {
-      font-size: 0.875rem;
-      line-height: 1.65;
-    }
-  }
-
-  .step-arrow {
-    display: flex;
-    align-items: center;
-    padding-top: 20px;
+  .dot {
+    width: 0.59rem;
+    height: 0.59rem;
+    border-radius: 50%;
+    background: var(--primary-blue);
     flex-shrink: 0;
+  }
 
-    svg {
-      width: 48px;
-      height: 20px;
-    }
+  .dash {
+    width: 1.75rem;
+    height: 0.125rem;
+    border-top: 0.125rem dashed #B0D8F5;
+    flex-shrink: 0;
   }
 }
 
-// ===== RESPONSIVE =====
-@media (max-width: 1024px) {
-  .how-it-works .steps-row {
+// ── Labels row ──
+.hiw-labels-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+
+.hiw-label {
+  padding: 0 16px;
+
+  h4 {
+    color: #3d3d3d;
+    text-align: center;
+    font-size: 1.375rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 0.94rem;
+  }
+
+  p {
+    color: #6d6d6d;
+    text-align: center;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.5rem;
+    /* 171.429% */
+  }
+}
+
+// ── Responsive ──
+@media (max-width: 768px) {
+  .hiw-icons-row {
     flex-direction: column;
-    align-items: center;
-    gap: 24px;
+    gap: 16px;
   }
 
-  .how-it-works .step-arrow {
+  .hiw-connector {
     transform: rotate(90deg);
-    padding: 0;
+    padding: 8px 0;
+  }
+
+  .hiw-labels-row {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
 }
 
-// ===== ADDITIONAL RESPONSIVE BREAKPOINTS =====
 @media (max-width: 480px) {
-  .how-it-works .step {
-    max-width: 100%;
-    padding: 0 8px;
+  .hiw-heading {
+    font-size: 1.7rem;
+    margin-bottom: 36px;
   }
 
-  .how-it-works .step .step-icon {
-    width: 52px;
-    height: 52px;
+  .hiw-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
   }
 }

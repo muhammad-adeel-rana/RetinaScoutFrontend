@@ -56,19 +56,19 @@ export class Visualization implements OnInit, AfterViewInit {
     ];
 
     overlayTags = [
-        { label: 'Hard Exudates', color: '#3B82F6', active: true },
+        { label: 'Hard Exudates', color: '#22C55E', active: true },  // green — matches model overlay
         { label: 'Microaneurysms', color: '#10B981', active: false },
         { label: 'Haemorrhages', color: '#8B5CF6', active: false },
         { label: 'Soft Exudates', color: '#F59E0B', active: false },
     ];
 
-    opacityLevel = 50;
+    opacityLevel = 40;  // default 40% — matches OVERLAY_ALPHA in backend
 
     originalZoom = 10;
     maskZoom = 10;
 
     detectionResults = [
-        { label: 'Hard Exudates', percent: 0, color: '#3B82F6', hasData: false },
+        { label: 'Hard Exudates', percent: 0, color: '#22C55E', hasData: false },
         { label: 'Microaneurysms', percent: 0, color: '#10B981', hasData: false },
         { label: 'Haemorrhages', percent: 0, color: '#8B5CF6', hasData: false },
         { label: 'Soft Exudates', percent: 0, color: '#F59E0B', hasData: false },
@@ -129,12 +129,14 @@ export class Visualization implements OnInit, AfterViewInit {
         canvas.width = this.originalImg.naturalWidth || 512;
         canvas.height = this.originalImg.naturalHeight || 512;
 
-        // Layer 1: original image
+        // Always draw the original image at full opacity as the base
         ctx.globalAlpha = 1;
         ctx.drawImage(this.originalImg, 0, 0, canvas.width, canvas.height);
 
-        // Layer 2: mask overlay (only if Hard Exudates tag is active)
-        if (this.overlayTags[0].active) {
+        // If Hard Exudates tag is active, blend the composited overlay on top.
+        // The backend already baked the green overlay into maskImg at 40% alpha.
+        // The slider here controls how strongly that overlay is shown (0–100%).
+        if (this.overlayTags[0].active && this.maskOverlaySrc) {
             ctx.globalAlpha = this.opacityLevel / 100;
             ctx.drawImage(this.maskImg, 0, 0, canvas.width, canvas.height);
         }

@@ -5,6 +5,7 @@
   top: -1000;
 }
 
+
 .hero-container {
   display: flex;
   align-items: center;
@@ -18,11 +19,11 @@
 }
 
 .hero-title {
-  font-size: 2.8rem;
+  font-size: 46px;
   font-weight: 700;
   line-height: 54px;
-  size: 46px;
-  color: var(--text-dark);
+  color: #3d3d3d;
+  font-style: bold;
   margin-bottom: 20px;
 }
 
@@ -35,7 +36,7 @@
   margin-bottom: 32px;
 
   .text-highlight {
-    color: #0084D4;
+    color: #0095DE;
     font-weight: 700;
     text-decoration: none;
 
@@ -46,11 +47,19 @@
 }
 
 .launch-btn {
-  font-size: 1rem;
-  padding: 20px 36px;
-  gap: 12px;
-  border-radius: 12px;
-  background: linear-gradient(0deg, #0095DE, #0095DE);
+  display: inline-flex;
+  padding: 1.25rem 2.25rem;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 0.75rem;
+  background: #0095DE;
+  box-shadow: -8px 8px 28px 0 rgba(0, 0, 0, 0.06);
+
+  color: var(--Neutrals-0, #FFF);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.75rem;
+  /* 116.667% */
 
 }
 
@@ -149,14 +158,14 @@
     }
 
     .count-plus {
-      color: #00A4F4;
+      color: #0095DE;
     }
   }
 
   .badge-label {
     font-size: 1.05rem;
     font-weight: 700;
-    color: #00A4F4;
+    color: #0095DE;
     line-height: 1;
   }
 
@@ -195,7 +204,7 @@
   /* border thickness */
   border-radius: inherit;
 
-  background: linear-gradient(0deg, #95DDFF, #95DDFF);
+  background: linear-gradient(0deg, #0095DE, #0095DE);
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
@@ -253,7 +262,7 @@
   padding: 2px;
   border-radius: inherit;
 
-  background: linear-gradient(0deg, #95DDFF, #95DDFF);
+  background: linear-gradient(0deg, #0095DE, #0095DE);
 
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
